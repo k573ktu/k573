@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         simPlaying = true;
         PlaySimulationButton.transform.GetChild(0).GetComponent<Image>().sprite = StopSimulationIcon;
         PauseSimulationButton.gameObject.SetActive(true);
+        FormulaManager.inst.StartAllFormulas();
         for (int i = 0;i < SimulationObjects.Count;i++)
         {
             objStartPositions[i] = SimulationObjects[i].transform.position;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         PlaySimulationButton.transform.GetChild(0).GetComponent<Image>().sprite = PlaySimulationIcon;
         UnpauseSimulation();
         PauseSimulationButton.gameObject.SetActive(false);
+        FormulaManager.inst.StopAllFormulas();
         for (int i = 0; i < SimulationObjects.Count; i++)
         {
             SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = false;

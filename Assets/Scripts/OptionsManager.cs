@@ -10,10 +10,6 @@ public class OptionsManager : MonoBehaviour
     private void Awake()
     {
         if (inst == null) inst = this;
-    }
-
-    private void Start()
-    {
         dict = new Dictionary<string, float>();
     }
 
