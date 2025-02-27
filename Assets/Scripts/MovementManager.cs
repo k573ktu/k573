@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MovementManager : MonoBehaviour
 {
@@ -14,10 +16,31 @@ public class MovementManager : MonoBehaviour
     bool holding;
     [System.NonSerialized] public bool canMove;
 
+    public GraphicRaycaster graphicRaycaster;
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(Vector2.zero, MaxCameraBorders);
+    }
+
+    bool IsPointerOverUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        graphicRaycaster.Raycast(eventData, results);
+
+        foreach (var result in results)
+        {
+            if (result.gameObject.layer == LayerMask.NameToLayer("UI"))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +49,11 @@ public class MovementManager : MonoBehaviour
         holding = false;
         cameraObj = Camera.main;
         canMove = true;
+
+        if (graphicRaycaster == null)
+        {
+            graphicRaycaster = FindFirstObjectByType<GraphicRaycaster>();
+        }
 
         updateCameraSize();
     }
@@ -42,7 +70,7 @@ public class MovementManager : MonoBehaviour
         if (!canMove) return;
         if (Input.GetMouseButtonDown(0))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!IsPointerOverUI())
             {
                 mouseStart = cameraObj.ScreenToWorldPoint(Input.mousePosition);
                 holding = true;

@@ -7,8 +7,8 @@ public class WeightFormula : Formula
     protected override void FormulaToText()
     {
         float m = OptionsManager.inst.getValue("Kamuoliuko masė");
-        double a = analyzedObject.GetComponent<Rigidbody2D>().linearVelocity.magnitude;
-        double F = m * a;
+        double a = Math.Round(analyzedObject.GetComponent<Rigidbody2D>().linearVelocity.magnitude,decimals);
+        double F = Math.Round(m * a,decimals);
         formulaText.text = string.Format("{0:F"+decimals+"} = {1}*{2:F"+decimals+"}", F, m, a);
     }
 }
