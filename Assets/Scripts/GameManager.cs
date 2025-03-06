@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
         {
             objStartPositions[i] = SimulationObjects[i].transform.position;
             SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = true;
+            SimulationStart start;
+            if(SimulationObjects[i].TryGetComponent(out start))
+            {
+                start.OnSimulationStart();
+            }
         }
     }
 
@@ -65,6 +70,11 @@ public class GameManager : MonoBehaviour
             SimulationObjects[i].GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             SimulationObjects[i].GetComponent<Rigidbody2D>().angularVelocity = 0;
             SimulationObjects[i].transform.position = objStartPositions[i];
+            SimulationStart start;
+            if (SimulationObjects[i].TryGetComponent(out start))
+            {
+                start.OnSimulationStop();
+            }
         }
     }
 
