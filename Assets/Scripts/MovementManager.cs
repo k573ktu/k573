@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class MovementManager : MonoBehaviour
 {
-    [SerializeField] Vector2 CameraZoomMinMax;
-    [SerializeField] float ScrollStrength;
+    public static MovementManager inst;
+
+    [SerializeField] bool borderless;
     [SerializeField] Vector2 MaxCameraBorders;
 
     Camera cameraObj;
@@ -20,8 +21,11 @@ public class MovementManager : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(Vector2.zero, MaxCameraBorders);
+        if (!borderless)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(Vector2.zero, MaxCameraBorders);
+        }
     }
 
     bool IsPointerOverUI()
@@ -41,6 +45,11 @@ public class MovementManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void Awake()
+    {
+        if (inst == null) inst = this;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,9 +97,11 @@ public class MovementManager : MonoBehaviour
             cameraObj.transform.position = new Vector3(cameraObj.transform.position.x + mouseOffset.x, cameraObj.transform.position.y + mouseOffset.y, cameraObj.transform.position.z);
         }
 
-        cameraObj.orthographicSize = Mathf.Clamp(cameraObj.orthographicSize - Input.mouseScrollDelta.y * ScrollStrength, CameraZoomMinMax.x, CameraZoomMinMax.y);
+        
         
         updateCameraSize();
+
+        if (borderless) return;
 
         float xOffsetMin = Mathf.Max(0, -MaxCameraBorders.x / 2 - (cameraObj.transform.position.x - cameraWorldSize.x / 2));
         float xOffsetMax = Mathf.Min(0, MaxCameraBorders.x / 2 - (cameraObj.transform.position.x + cameraWorldSize.x / 2));

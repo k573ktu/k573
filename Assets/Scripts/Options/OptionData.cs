@@ -4,24 +4,27 @@ using UnityEngine.UI;
 
 public class OptionData : MonoBehaviour
 {
-    [SerializeField] string OptionName;
-    [SerializeField] string Metric;
-    [SerializeField] Slider slider;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] protected string OptionName;
+    [SerializeField] protected string Metric;
+    [SerializeField] protected Slider slider;
+    [SerializeField] protected TextMeshProUGUI text;
 
     protected virtual void OnValueChanged(float value) { }
 
+    protected virtual void UpdateDisplay(float value)
+    {
+        text.text = OptionName + ": " + slider.value.ToString() + Metric;
+    }
+
     private void Start()
     {
-        OptionsManager.inst.InsertOption(OptionName, slider.minValue);
-        text.text = OptionName + ": " + slider.minValue.ToString() + Metric;
-        OnValueChanged(slider.minValue);
+        OnUpdated();
     }
 
     public void OnUpdated()
     {
         OptionsManager.inst.InsertOption(OptionName, slider.value);
-        text.text = OptionName + ": " + slider.value.ToString() + Metric;
+        UpdateDisplay(slider.value);
         OnValueChanged(slider.value);
     }
 }

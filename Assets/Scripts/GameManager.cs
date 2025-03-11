@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         objStartPositions = new Vector2[SimulationObjects.Count];
 
-        PauseSimulationButton.gameObject.SetActive(false);
+        PauseSimulationButton.GetComponent<Button>().interactable = false;
 
         PrimaryPauseColor = PauseSimulationButton.color;
 
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         simPlaying = true;
         PlaySimulationButton.transform.GetChild(0).GetComponent<Image>().sprite = StopSimulationIcon;
-        PauseSimulationButton.gameObject.SetActive(true);
+        PauseSimulationButton.GetComponent<Button>().interactable = true;
         FormulaManager.inst.StartAllFormulas();
         for (int i = 0;i < SimulationObjects.Count;i++)
         {
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         simPlaying = false;
         PlaySimulationButton.transform.GetChild(0).GetComponent<Image>().sprite = PlaySimulationIcon;
         UnpauseSimulation();
-        PauseSimulationButton.gameObject.SetActive(false);
+        PauseSimulationButton.GetComponent<Button>().interactable = false;
         FormulaManager.inst.StopAllFormulas();
         for (int i = 0; i < SimulationObjects.Count; i++)
         {
