@@ -7,6 +7,7 @@ public struct PlanetData
     public string name;
     public float radius;
     public float mass;
+    public Sprite planetSprite;
 }
 
 public class PlanetOptionData : OptionData
@@ -24,6 +25,8 @@ public class PlanetOptionData : OptionData
         analyzedObject.GetComponent<Rigidbody2D>().mass = selected.mass;
 
         analyzedObject.transform.localScale = new Vector3(selected.radius, selected.radius, analyzedObject.transform.localScale.z);
+
+        analyzedObject.GetComponent<SpriteRenderer>().sprite = selected.planetSprite;
 
         text.text = OptionName + ": " + selected.name;
     }

@@ -694,15 +694,19 @@ MonoBehaviour:
   - name: "Ma\u017Ea"
     radius: 1
     mass: 10000
+    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
   - name: "Vidutin\u0117"
-    radius: 5
+    radius: 2
     mass: 20000
+    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
   - name: "Didel\u0117"
-    radius: 10
-    mass: 50000
+    radius: 4
+    mass: 40000
+    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
   - name: "Labai didel\u0117"
-    radius: 15
-    mass: 100000
+    radius: 8
+    mass: 80000
+    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
 --- !u!1 &249265874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1725,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
   m_Color: {r: 0, g: 0.24209066, b: 0.78039217, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2663,15 +2667,19 @@ MonoBehaviour:
   - name: "Ma\u017Ea"
     radius: 1
     mass: 10000
+    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
   - name: "Vidutin\u0117"
-    radius: 5
+    radius: 2
     mass: 20000
+    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
   - name: "Didel\u0117"
-    radius: 10
-    mass: 50000
+    radius: 4
+    mass: 40000
+    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
   - name: "Labai didel\u0117"
-    radius: 15
-    mass: 100000
+    radius: 8
+    mass: 80000
+    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
 --- !u!1 &1238312832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,7 +3581,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
   m_Color: {r: 0.78113204, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
