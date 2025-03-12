@@ -16,7 +16,7 @@ public class OptionData : MonoBehaviour
         text.text = OptionName + ": " + slider.value.ToString() + Metric;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         OnUpdated();
     }

@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             SimulationObjects[i].GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             SimulationObjects[i].GetComponent<Rigidbody2D>().angularVelocity = 0;
             SimulationObjects[i].transform.position = objStartPositions[i];
+            SimulationObjects[i].transform.rotation = Quaternion.identity;
             SimulationStart start;
             if (SimulationObjects[i].TryGetComponent(out start))
             {
