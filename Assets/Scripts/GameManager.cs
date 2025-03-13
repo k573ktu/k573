@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -127,6 +128,9 @@ public class GameManager : MonoBehaviour
         }else if (Input.GetKeyDown(KeyCode.P))
         {
             UpdatePause();
+        }else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainScene");
         }
     }
 }
