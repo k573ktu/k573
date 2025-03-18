@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 205137604}
   - component: {fileID: 205137607}
   - component: {fileID: 205137606}
-  - component: {fileID: 205137609}
+  - component: {fileID: 205137608}
   m_Layer: 5
   m_Name: Planet1
   m_TagString: Untagged
@@ -673,7 +673,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205137603}
   m_CullTransparentMesh: 1
---- !u!114 &205137609
+--- !u!114 &205137608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -691,22 +691,38 @@ MonoBehaviour:
   text: {fileID: 101510034}
   analyzedObject: {fileID: 1630809833}
   planets:
-  - name: "Ma\u017Ea"
+  - name: "Saul\u0117"
     radius: 1
-    mass: 10000
-    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
-  - name: "Vidutin\u0117"
-    radius: 2
-    mass: 20000
-    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
-  - name: "Didel\u0117"
-    radius: 4
-    mass: 40000
-    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
-  - name: "Labai didel\u0117"
-    radius: 8
-    mass: 80000
-    planetSprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
+    mass: 1
+    planetSprite: {fileID: 5097187456920786724, guid: bf49a037ba4f17045984c6c8f37dd843, type: 3}
+  - name: Merkurijus
+    radius: 0.609875
+    mass: 3300
+    planetSprite: {fileID: -6945610935316670922, guid: 0ccf7273ddef694479d05e98a0de0238, type: 3}
+  - name: Venera
+    radius: 1.513
+    mass: 48700
+    planetSprite: {fileID: 6018544665869780964, guid: 40603d4fed3986744a9cee43c9422301, type: 3}
+  - name: "\u017Dem\u0117"
+    radius: 1.5945
+    mass: 59700
+    planetSprite: {fileID: 5289403861194224616, guid: bf7a88dd92b40004491e5506dea41b4d, type: 3}
+  - name: Marsas
+    radius: 0.849
+    mass: 730
+    planetSprite: {fileID: -3176635093236519848, guid: bbb810cca0cf1e249935bfd10597bd86, type: 3}
+  - name: Jupiteris
+    radius: 17.873
+    mass: 18980000
+    planetSprite: {fileID: 4039604292344663038, guid: 806e31ce0761f994ab31a4d7fc9648f0, type: 3}
+  - name: Saturnas
+    radius: 15.067
+    mass: 5680000
+    planetSprite: {fileID: -7957650098845602049, guid: 3a7c124acbad673418c95ab17201b19d, type: 3}
+  - name: Uranas
+    radius: 6.38975
+    mass: 868000
+    planetSprite: {fileID: 6688241773474287307, guid: 8c9c564661ccf4d43b95389b5525e5f9, type: 3}
 --- !u!1 &249265874
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,13 +807,13 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1088618742}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 3
+  m_MaxValue: 7
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 205137609}
+      - m_Target: {fileID: 205137608}
         m_TargetAssemblyTypeName: OptionData, Assembly-CSharp
         m_MethodName: OnUpdated
         m_Mode: 1
@@ -1725,12 +1741,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
+  m_Sprite: {fileID: 5289403861194224616, guid: bf7a88dd92b40004491e5506dea41b4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.12, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2664,22 +2680,38 @@ MonoBehaviour:
   text: {fileID: 40948650}
   analyzedObject: {fileID: 533296123}
   planets:
-  - name: "Ma\u017Ea"
+  - name: "Saul\u0117"
     radius: 1
-    mass: 10000
-    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
-  - name: "Vidutin\u0117"
-    radius: 2
-    mass: 20000
-    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
-  - name: "Didel\u0117"
-    radius: 4
-    mass: 40000
-    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
-  - name: "Labai didel\u0117"
-    radius: 8
-    mass: 80000
-    planetSprite: {fileID: -3219594809714316667, guid: 306ba5c773eb6fd499a5c2e2750e4573, type: 3}
+    mass: 1
+    planetSprite: {fileID: 5097187456920786724, guid: bf49a037ba4f17045984c6c8f37dd843, type: 3}
+  - name: Merkurijus
+    radius: 0.609875
+    mass: 3300
+    planetSprite: {fileID: -6945610935316670922, guid: 0ccf7273ddef694479d05e98a0de0238, type: 3}
+  - name: Venera
+    radius: 1.513
+    mass: 48700
+    planetSprite: {fileID: 6018544665869780964, guid: 40603d4fed3986744a9cee43c9422301, type: 3}
+  - name: "\u017Dem\u0117"
+    radius: 1.5945
+    mass: 59700
+    planetSprite: {fileID: 5289403861194224616, guid: bf7a88dd92b40004491e5506dea41b4d, type: 3}
+  - name: Marsas
+    radius: 0.849
+    mass: 730
+    planetSprite: {fileID: -3176635093236519848, guid: bbb810cca0cf1e249935bfd10597bd86, type: 3}
+  - name: Jupiteris
+    radius: 17.873
+    mass: 18980000
+    planetSprite: {fileID: 4039604292344663038, guid: 806e31ce0761f994ab31a4d7fc9648f0, type: 3}
+  - name: Saturnas
+    radius: 15.067
+    mass: 5680000
+    planetSprite: {fileID: -7957650098845602049, guid: 3a7c124acbad673418c95ab17201b19d, type: 3}
+  - name: Uranas
+    radius: 6.38975
+    mass: 868000
+    planetSprite: {fileID: 6688241773474287307, guid: 8c9c564661ccf4d43b95389b5525e5f9, type: 3}
 --- !u!1 &1238312832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,12 +3613,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2449204410565601587, guid: b7e6034152d48fc4ca63513b7261fae8, type: 3}
+  m_Sprite: {fileID: 5289403861194224616, guid: bf7a88dd92b40004491e5506dea41b4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9846154, y: 0.9846154}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4040,7 +4072,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1106787359}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 3
+  m_MaxValue: 7
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:

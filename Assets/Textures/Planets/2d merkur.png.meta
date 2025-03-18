@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 306ba5c773eb6fd499a5c2e2750e4573
+guid: 0ccf7273ddef694479d05e98a0de0238
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3219594809714316667
-    second: okak_0
+      213: -6945610935316670922
+    second: 2d merkur_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 65
+  spritePixelsToUnits: 62
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: okak_0
+      name: 2d merkur_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 63
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58a69462493b153d0800000000000000
-      internalID: -3219594809714316667
+      spriteID: 636916c57ab3c9f90800000000000000
+      internalID: -6945610935316670922
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      okak_0: -3219594809714316667
+      2d merkur_0: -6945610935316670922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
