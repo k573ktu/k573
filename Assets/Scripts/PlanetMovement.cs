@@ -10,6 +10,8 @@ public class PlanetMovement : SimulationStart
     [SerializeField] Rigidbody2D otherPlanet;
     Rigidbody2D thisPlanet;
 
+    public Vector2 currForce;
+
     void Start()
     {
         started = false;
@@ -60,7 +62,8 @@ public class PlanetMovement : SimulationStart
 
                 // Apply gravitational force
                 thisPlanet.AddForce(force);
-                otherPlanet.AddForce(-force);
+
+                currForce = force;
 
                 // Apply angular velocity for double-helix effect
                 float angularSpeed = 0.1f; // Adjust for rotation speed
