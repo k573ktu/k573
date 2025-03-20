@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager inst;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] List<GameObject> SimulationObjects;
+
+    [SerializeField] List<Arrow> SimulationArrows;
 
     [SerializeField] Image PlaySimulationButton;
     [SerializeField] Image PauseSimulationButton;
@@ -24,14 +27,18 @@ public class GameManager : MonoBehaviour
     bool simPlaying;
     bool paused;
 
+    private void Awake()
+    {
+        if (inst == null) inst = this;
+        SimulationArrows = new List<Arrow>();
+    }
+
     void Start()
     {
         simPlaying = false;
         paused = false;
         objStartPositions = new Vector2[SimulationObjects.Count];
-
         PauseSimulationButton.GetComponent<Button>().interactable = false;
-
         PrimaryPauseColor = PauseSimulationButton.color;
 
         for (int i = 0; i < SimulationObjects.Count; i++)
@@ -46,6 +53,12 @@ public class GameManager : MonoBehaviour
         PlaySimulationButton.transform.GetChild(0).GetComponent<Image>().sprite = StopSimulationIcon;
         PauseSimulationButton.GetComponent<Button>().interactable = true;
         FormulaManager.inst.StartAllFormulas();
+
+        foreach(var i in SimulationArrows)
+        {
+            i.show();
+        }
+
         for (int i = 0;i < SimulationObjects.Count;i++)
         {
             objStartPositions[i] = SimulationObjects[i].transform.position;
@@ -65,6 +78,12 @@ public class GameManager : MonoBehaviour
         UnpauseSimulation();
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         FormulaManager.inst.StopAllFormulas();
+
+        foreach (var i in SimulationArrows)
+        {
+            i.hide();
+        }
+
         for (int i = 0; i < SimulationObjects.Count; i++)
         {
             SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = false;
@@ -118,6 +137,11 @@ public class GameManager : MonoBehaviour
         {
             UnpauseSimulation();
         }
+    }
+
+    public void RegisterArrow(Arrow arrow)
+    {
+        SimulationArrows.Add(arrow);
     }
 
     private void Update()

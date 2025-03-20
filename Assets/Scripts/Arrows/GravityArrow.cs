@@ -7,6 +7,6 @@ public class GravityArrow : Arrow
     protected override void UpdateArrowDirection()
     {
         Vector2 curr = analyzedObject.GetComponent<PlanetMovement>().currForce;
-        arrowDirection = curr.normalized * Mathf.Min(curr.magnitude, maxForce);
+        arrowDirection = Mathf.InverseLerp(0, maxForce, Mathf.Min(curr.magnitude, maxForce)) * maxArrowDisplayLength * curr.normalized;
     }
 }

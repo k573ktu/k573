@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
 public struct PlanetData
@@ -16,6 +17,18 @@ public class PlanetOptionData : OptionData
 
     [SerializeField] List<PlanetData> planets;
 
+    ShadowCaster2D shadowCaster;
+
+    CircleCollider2D circleCollider;
+
+    protected override void Start()
+    {
+        base.Start();
+        shadowCaster = GetComponent<ShadowCaster2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
+    }
+
+
     protected override void OnValueChanged(float value)
     {
         if (planets.Count <= (int)Mathf.Round(value)) return;
@@ -27,6 +40,8 @@ public class PlanetOptionData : OptionData
         analyzedObject.transform.localScale = new Vector3(selected.radius, selected.radius, analyzedObject.transform.localScale.z);
 
         analyzedObject.GetComponent<SpriteRenderer>().sprite = selected.planetSprite;
+
+        analyzedObject.GetComponent<ShadowCaster2D>().Update();
 
         text.text = OptionName + ": " + selected.name;
     }

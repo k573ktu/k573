@@ -1,3 +1,4 @@
+using System.Net;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,18 +9,28 @@ public class Arrow : MonoBehaviour
     [SerializeField] protected GameObject arrowPointPrefab;
     private GameObject arrowPoint;
 
+    [SerializeField] Color ArrowColor;
+
     [SerializeField] protected GameObject analyzedObject;
 
     LineRenderer arrowLine;
 
     protected Vector2 arrowDirection;
 
+    Vector2 endPoint;
+
 
     protected virtual void Start()
     {
         arrowLine = GetComponent<LineRenderer>();
+        arrowLine.startColor = ArrowColor;
+        arrowLine.material.color = ArrowColor;
+        arrowLine.enabled = false;
         arrowPoint = Instantiate(arrowPointPrefab);
+        arrowPoint.GetComponent<SpriteRenderer>().color = ArrowColor;
         arrowPoint.SetActive(false);
+
+        GameManager.inst.RegisterArrow(this);
     }
 
     protected virtual void UpdateArrowDirection() { }
@@ -36,13 +47,19 @@ public class Arrow : MonoBehaviour
         arrowPoint.SetActive(false);
     }
 
-    void Update()
+    protected virtual void UpdateDisplay()
     {
-        UpdateArrowDirection();
-        Vector2 endPoint = (Vector2)analyzedObject.transform.position + arrowDirection;
-
+        if (!arrowLine.enabled) return;
         arrowLine.SetPosition(0, analyzedObject.transform.position);
         arrowLine.SetPosition(1, endPoint);
         arrowPoint.transform.position = endPoint;
+        arrowPoint.transform.up = endPoint - (Vector2)analyzedObject.transform.position;
+    }
+
+    void Update()
+    {
+        UpdateArrowDirection();
+        endPoint = (Vector2)analyzedObject.transform.position + arrowDirection;
+        UpdateDisplay();  
     }
 }
