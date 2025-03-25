@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9977662960754c24cb1efc9f06406d0f
+guid: 05718305d278f7b4e987120741cfdd89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1880120661550918566
-    second: body_0
+      213: -7367592540534728250
+    second: menul2d_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: body_0
+      name: menul2d_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2391
-        height: 632
+        x: 25
+        y: 16
+        width: 464
+        height: 476
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a549269383878e5e0800000000000000
-      internalID: -1880120661550918566
+      spriteID: 6c91c9b9e9d01c990800000000000000
+      internalID: -7367592540534728250
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      body_0: -1880120661550918566
+      menul2d_0: -7367592540534728250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 9977662960754c24cb1efc9f06406d0f
+guid: 1d472021a1756474d8baa3e17366a448
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1880120661550918566
-    second: body_0
+      213: 5190617899801486035
+    second: vener2d_0
+  - first:
+      213: -8975702328869277570
+    second: vener2d_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: body_0
+      name: vener2d_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2391
-        height: 632
+        x: 496
+        y: 503
+        width: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a549269383878e5e0800000000000000
-      internalID: -1880120661550918566
+      spriteID: 3d2a3729a77c80840800000000000000
+      internalID: 5190617899801486035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vener2d_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 13
+        width: 469
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70b9168946ef6380800000000000000
+      internalID: -8975702328869277570
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      body_0: -1880120661550918566
+      vener2d_0: 5190617899801486035
+      vener2d_1: -8975702328869277570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

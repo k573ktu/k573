@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9977662960754c24cb1efc9f06406d0f
+guid: 44de2dc113814b34599793cefc98ddc8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1880120661550918566
-    second: body_0
+      213: 4952535309461303829
+    second: merku2d_0
+  - first:
+      213: -3413635467608619089
+    second: merku2d_1
+  - first:
+      213: -3359853450953630076
+    second: merku2d_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: body_0
+      name: merku2d_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 2391
-        height: 632
+        y: 506
+        width: 338
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a549269383878e5e0800000000000000
-      internalID: -1880120661550918566
+      spriteID: 5123502df90fab440800000000000000
+      internalID: 4952535309461303829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merku2d_1
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 506
+        width: 108
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa78380e0a450a0d0800000000000000
+      internalID: -3413635467608619089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merku2d_2
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 9
+        width: 486
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ed98e66176f51d0800000000000000
+      internalID: -3359853450953630076
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      body_0: -1880120661550918566
+      merku2d_0: 4952535309461303829
+      merku2d_1: -3413635467608619089
+      merku2d_2: -3359853450953630076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
