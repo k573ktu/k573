@@ -8,37 +8,23 @@ public class PlanetMovement : SimulationStart
     bool started;
 
     [SerializeField] Rigidbody2D otherPlanet;
+    [SerializeField] Rigidbody2D sun;
+    [SerializeField] Vector2 startVelocity;
     Rigidbody2D thisPlanet;
 
     public Vector2 currForce;
+    public Vector2 currSunForce;
 
     void Start()
     {
         started = false;
         thisPlanet = GetComponent<Rigidbody2D>();
-
- 
     }
 
     public override void OnSimulationStart()
     {
         started = true;
-        // Set initial tangential velocity for double-helix effect
-        if (otherPlanet != null)
-        {
-            Vector2 direction = (otherPlanet.position - thisPlanet.position).normalized;
-            float distance = Vector2.Distance(thisPlanet.position, otherPlanet.position);
-
-            // Compute orbital velocity for stable rotation
-            float orbitalSpeed = Mathf.Sqrt((float)(G * otherPlanet.mass / distance));
-
-            // Perpendicular vector for initial tangential velocity
-            Vector2 tangent = new Vector2(-direction.y, direction.x);
-
-            // Apply initial velocity
-            thisPlanet.linearVelocity = tangent * orbitalSpeed;
-            otherPlanet.linearVelocity = -tangent * orbitalSpeed;
-        }
+        thisPlanet.linearVelocity = startVelocity;
     }
 
     public override void OnSimulationStop()
@@ -54,21 +40,27 @@ public class PlanetMovement : SimulationStart
             Vector2 direction = (otherPlanet.position - thisPlanet.position).normalized;
             float distance = Vector2.Distance(thisPlanet.position, otherPlanet.position);
 
+            Vector2 sundirection = (sun.position - thisPlanet.position).normalized;
+            float sundistance = Vector2.Distance(thisPlanet.position, sun.position);
+
             if (distance > 0)
             {
-                // Compute gravitational force
                 double forceMagnitude = G * (thisPlanet.mass * otherPlanet.mass) / (distance * distance);
-                Vector2 force = (Vector2)direction * (float)forceMagnitude;
+                Vector2 force = direction * (float)forceMagnitude;
 
-                // Apply gravitational force
                 thisPlanet.AddForce(force);
 
                 currForce = force;
+            }
 
-                // Apply angular velocity for double-helix effect
-                float angularSpeed = 0.1f; // Adjust for rotation speed
-                thisPlanet.angularVelocity = angularSpeed * Mathf.Rad2Deg;
-                otherPlanet.angularVelocity = -angularSpeed * Mathf.Rad2Deg;
+            if (sundistance > 0)
+            {
+                double forceMagnitude = G * (thisPlanet.mass * otherPlanet.mass) / (sundistance * sundistance);
+                Vector2 force = sundirection * (float)forceMagnitude;
+
+                thisPlanet.AddForce(force);
+
+                currSunForce = force;
             }
         }
     }

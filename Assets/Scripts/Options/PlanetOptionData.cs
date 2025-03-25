@@ -17,15 +17,9 @@ public class PlanetOptionData : OptionData
 
     [SerializeField] List<PlanetData> planets;
 
-    ShadowCaster2D shadowCaster;
-
-    CircleCollider2D circleCollider;
-
     protected override void Start()
     {
         base.Start();
-        shadowCaster = GetComponent<ShadowCaster2D>();
-        circleCollider = GetComponent<CircleCollider2D>();
     }
 
 
