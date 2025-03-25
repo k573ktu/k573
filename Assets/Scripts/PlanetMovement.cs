@@ -55,7 +55,7 @@ public class PlanetMovement : SimulationStart
 
             if (sundistance > 0)
             {
-                double forceMagnitude = G * (thisPlanet.mass * otherPlanet.mass) / (sundistance * sundistance);
+                double forceMagnitude = G * (thisPlanet.mass * sun.mass) / (sundistance * sundistance);
                 Vector2 force = sundirection * (float)forceMagnitude;
 
                 thisPlanet.AddForce(force);
