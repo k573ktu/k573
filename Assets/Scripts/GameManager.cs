@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     bool simPlaying;
     bool paused;
 
+    bool inPauseMeniu;
+    [SerializeField] GameObject pauseMeniu;
+
     private void Awake()
     {
         if (inst == null) inst = this;
@@ -40,6 +43,7 @@ public class GameManager : MonoBehaviour
         objStartPositions = new Vector2[SimulationObjects.Count];
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         PrimaryPauseColor = PauseSimulationButton.color;
+        inPauseMeniu = false;
 
         for (int i = 0; i < SimulationObjects.Count; i++)
         {
@@ -144,6 +148,28 @@ public class GameManager : MonoBehaviour
         SimulationArrows.Add(arrow);
     }
 
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void PauseOn()
+    {
+        pauseMeniu.SetActive(true);
+        inPauseMeniu = true;
+        Time.timeScale = 0;
+    }
+
+    void PauseOff()
+    {
+        pauseMeniu.SetActive(false);
+        inPauseMeniu = false;
+        if (!paused)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -154,7 +180,15 @@ public class GameManager : MonoBehaviour
             UpdatePause();
         }else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("MainScene");
+            if (inPauseMeniu)
+            {
+                inPauseMeniu = false;
+                PauseOff();
+            }
+            else
+            {
+                BackToMain();
+            } 
         }
     }
 }
