@@ -10,9 +10,13 @@ public class CarMovement : MonoBehaviour
 
     private void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
+    }
+
+    private void Awake()
+    {
         currSpeed = Vector2.zero;
         hit = false;
-        rigid = GetComponent<Rigidbody2D>();
     }
 
     public void ChangeSpeed(Vector2 speed)

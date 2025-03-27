@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager inst;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] List<GameObject> SimulationObjects;
+    public List<GameObject> SimulationObjects;
+
+    List<OptionData> OptionDataObjects;
 
     [SerializeField] List<Arrow> SimulationArrows;
 
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         if (inst == null) inst = this;
         SimulationArrows = new List<Arrow>();
+        OptionDataObjects = new List<OptionData>();
     }
 
     void Start()
@@ -46,22 +49,39 @@ public class GameManager : MonoBehaviour
 
         foreach (var i in SimulationObjects)
         {
-            Rigidbody2D currRigid;
-
-            if (i.TryGetComponent(out currRigid))
+            if (i == null)
             {
-                currRigid.simulated = false;
                 objStartPositions.Add(new Vector2());
             }
             else
             {
-                foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
-                {
-                    j.simulated = false;
-                    objStartPositions.Add(new Vector2());
-                }
+                StopObjectSimulation(i);
             }
         }
+    }
+
+    public void StopObjectSimulation(GameObject obj)
+    {
+        Rigidbody2D currRigid;
+
+        if (obj.TryGetComponent(out currRigid))
+        {
+            currRigid.simulated = false;
+            objStartPositions.Add(new Vector2());
+        }
+        else
+        {
+            foreach (var j in obj.GetComponentsInChildren<Rigidbody2D>())
+            {
+                j.simulated = false;
+                objStartPositions.Add(new Vector2());
+            }
+        }
+    }
+
+    public void RegisterOptionData(OptionData data)
+    {
+        OptionDataObjects.Add(data);
     }
 
     void StartSimulation()
@@ -74,6 +94,11 @@ public class GameManager : MonoBehaviour
         foreach(var i in SimulationArrows)
         {
             i.show();
+        }
+
+        foreach (var i in OptionDataObjects)
+        {
+            i.OnSimulationStarted();
         }
 
         int counter = 0;
@@ -115,6 +140,11 @@ public class GameManager : MonoBehaviour
         FormulaManager.inst.StopAllFormulas();
 
         int counter = 0;
+
+        foreach (var i in OptionDataObjects)
+        {
+            i.OnSimulationStopped();
+        }
 
         foreach (var i in SimulationArrows)
         {

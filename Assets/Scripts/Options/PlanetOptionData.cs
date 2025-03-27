@@ -13,8 +13,6 @@ public struct PlanetData
 
 public class PlanetOptionData : OptionData
 {
-    [SerializeField] GameObject analyzedObject;
-
     [SerializeField] List<PlanetData> planets;
 
     protected override void Start()

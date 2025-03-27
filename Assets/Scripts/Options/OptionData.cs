@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 public class OptionData : MonoBehaviour
 {
+    [SerializeField] public Rigidbody2D analyzedObject;
+
     [SerializeField] protected string OptionName;
     [SerializeField] protected string Metric;
     [SerializeField] protected Slider slider;
     [SerializeField] protected TextMeshProUGUI text;
+    [SerializeField] protected bool DisableOnSimulationStart = false;
 
     protected virtual void OnValueChanged(float value) { }
 
@@ -18,12 +21,32 @@ public class OptionData : MonoBehaviour
 
     protected virtual void Start()
     {
+        if (DisableOnSimulationStart)
+        {
+            GameManager.inst.RegisterOptionData(this);
+        }
+
         OnUpdated();
+    }
+
+    public virtual void OnSimulationStarted()
+    {
+        if (DisableOnSimulationStart)
+        {
+            slider.interactable = false;
+        }
+    }
+
+    public virtual void OnSimulationStopped()
+    {
+        if (DisableOnSimulationStart)
+        {
+            slider.interactable = true;
+        }
     }
 
     public void OnUpdated()
     {
-        OptionsManager.inst.InsertOption(OptionName, slider.value);
         UpdateDisplay(slider.value);
         OnValueChanged(slider.value);
     }
