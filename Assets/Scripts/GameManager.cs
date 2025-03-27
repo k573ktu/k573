@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Color SelectedPauseColor;
     Color PrimaryPauseColor;
 
-    Vector2[] objStartPositions;
+    public List<Vector2> objStartPositions;
 
     public bool simPlaying;
     bool paused;
@@ -40,14 +40,27 @@ public class GameManager : MonoBehaviour
     {
         simPlaying = false;
         paused = false;
-        objStartPositions = new Vector2[SimulationObjects.Count];
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         PrimaryPauseColor = PauseSimulationButton.color;
         inPauseMeniu = false;
 
-        for (int i = 0; i < SimulationObjects.Count; i++)
+        foreach (var i in SimulationObjects)
         {
-            SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = false;
+            Rigidbody2D currRigid;
+
+            if (i.TryGetComponent(out currRigid))
+            {
+                currRigid.simulated = false;
+                objStartPositions.Add(new Vector2());
+            }
+            else
+            {
+                foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
+                {
+                    j.simulated = false;
+                    objStartPositions.Add(new Vector2());
+                }
+            }
         }
     }
 
@@ -63,12 +76,30 @@ public class GameManager : MonoBehaviour
             i.show();
         }
 
-        for (int i = 0;i < SimulationObjects.Count;i++)
+        int counter = 0;
+
+        foreach (var i in SimulationObjects)
         {
-            objStartPositions[i] = SimulationObjects[i].transform.position;
-            SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = true;
+            Rigidbody2D currRigid;
+
+            if (i.TryGetComponent(out currRigid))
+            {
+                currRigid.simulated = true;
+                objStartPositions[counter] = i.transform.position;
+                counter++;
+            }
+            else
+            {
+                foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
+                {
+                    j.simulated = true;
+                    objStartPositions[counter] = j.transform.position;
+                    counter++;
+                }
+            }
+
             SimulationStart start;
-            if(SimulationObjects[i].TryGetComponent(out start))
+            if(i.TryGetComponent(out start))
             {
                 start.OnSimulationStart();
             }
@@ -83,20 +114,44 @@ public class GameManager : MonoBehaviour
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         FormulaManager.inst.StopAllFormulas();
 
+        int counter = 0;
+
         foreach (var i in SimulationArrows)
         {
             i.hide();
         }
 
-        for (int i = 0; i < SimulationObjects.Count; i++)
+        foreach (var i in SimulationObjects)
         {
-            SimulationObjects[i].GetComponent<Rigidbody2D>().simulated = false;
-            SimulationObjects[i].GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-            SimulationObjects[i].GetComponent<Rigidbody2D>().angularVelocity = 0;
-            SimulationObjects[i].transform.position = objStartPositions[i];
-            SimulationObjects[i].transform.rotation = Quaternion.identity;
+
+            Rigidbody2D currRigid;
+            
+
+            if (i.TryGetComponent(out currRigid))
+            {
+                currRigid.simulated = false;
+                currRigid.linearVelocity = Vector2.zero;
+                currRigid.angularVelocity = 0;
+                i.transform.position = objStartPositions[counter];
+                counter++;
+                i.transform.rotation = Quaternion.identity;
+            }
+            else
+            {
+                foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
+                {
+                    j.simulated = false;
+                    j.linearVelocity = Vector2.zero;
+                    j.angularVelocity = 0;
+                    j.transform.position = objStartPositions[counter];
+                    counter++;
+                    j.transform.rotation = Quaternion.identity;
+                }
+            }
+            
+            
             SimulationStart start;
-            if (SimulationObjects[i].TryGetComponent(out start))
+            if (i.TryGetComponent(out start))
             {
                 start.OnSimulationStop();
             }
