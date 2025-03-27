@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         PrimaryPauseColor = PauseSimulationButton.color;
         inPauseMeniu = false;
+        Time.timeScale = 1;
 
         foreach (var i in SimulationObjects)
         {
