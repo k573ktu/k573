@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     Vector2[] objStartPositions;
 
-    bool simPlaying;
+    public bool simPlaying;
     bool paused;
 
     bool inPauseMeniu;

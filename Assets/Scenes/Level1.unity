@@ -549,8 +549,8 @@ GameObject:
   - component: {fileID: 130711687}
   - component: {fileID: 130711686}
   - component: {fileID: 130711688}
-  - component: {fileID: 130711690}
   - component: {fileID: 130711691}
+  - component: {fileID: 130711692}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -655,52 +655,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &130711690
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130711685}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 23.924881, y: 6.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!60 &130711691
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -918,6 +872,18 @@ PolygonCollider2D:
       - {x: 11.9624405, y: -3.0314975}
       - {x: 11.939076, y: -2.9964511}
   m_UseDelaunayMesh: 0
+--- !u!114 &130711692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130711685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c2e6aee67748e43aa3edb79cecad39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146552429
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +898,7 @@ GameObject:
   - component: {fileID: 146552430}
   m_Layer: 0
   m_Name: Box (1)
-  m_TagString: Untagged
+  m_TagString: box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,7 +1021,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5999999, g: 0.2692751, b: 0.021509346, a: 1}
+  m_Color: {r: 0.554717, g: 0.23987763, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3772,6 +3738,7 @@ MonoBehaviour:
   PlaySimulationIcon: {fileID: -3951802953639487770, guid: 6c3c3bc3cd8fe0c448dd62034d40cf51, type: 3}
   StopSimulationIcon: {fileID: -1125611635231744522, guid: 57f685231ea9c3b498918caa005198a6, type: 3}
   SelectedPauseColor: {r: 0.38431373, g: 0.38431373, b: 0.38431373, a: 1}
+  simPlaying: 0
   pauseMeniu: {fileID: 985408904}
 --- !u!4 &991415126
 Transform:
@@ -4189,7 +4156,7 @@ GameObject:
   - component: {fileID: 1144594085}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4266,7 +4233,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5999999, g: 0.2692751, b: 0.021509346, a: 1}
+  m_Color: {r: 0.554717, g: 0.23987763, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5892,7 +5859,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1661917522054217500, guid: 2c9cdf48f1c81fa4091449cac074d9ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
