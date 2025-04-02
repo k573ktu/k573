@@ -1,6 +1,7 @@
 using System.Net;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
 {
@@ -26,9 +27,13 @@ public class Arrow : MonoBehaviour
         arrowLine.startColor = ArrowColor;
         arrowLine.material.color = ArrowColor;
         arrowLine.enabled = false;
-        arrowPoint = Instantiate(arrowPointPrefab);
-        arrowPoint.GetComponent<SpriteRenderer>().color = ArrowColor;
-        arrowPoint.SetActive(false);
+        if (GameManager.inst.displayScene)
+        {
+            arrowPoint = Instantiate(arrowPointPrefab);
+            SceneManager.MoveGameObjectToScene(arrowPoint, gameObject.scene);
+            arrowPoint.GetComponent<SpriteRenderer>().color = ArrowColor;
+            arrowPoint.SetActive(false);
+        }
 
         GameManager.inst.RegisterArrow(this);
     }
@@ -58,6 +63,7 @@ public class Arrow : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.inst.displayScene) return;
         UpdateArrowDirection();
         endPoint = (Vector2)analyzedObject.transform.position + arrowDirection;
         UpdateDisplay();  

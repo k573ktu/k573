@@ -46,6 +46,7 @@ public class UiManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GetComponent<LevelSelectionManager>().unselectCurrentSelected();
             GoMain();
         }
     }
