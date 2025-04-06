@@ -229,7 +229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 60, y: 283.50006}
+  m_AnchoredPosition: {x: 30, y: 446}
   m_SizeDelta: {x: 349, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &120696629
@@ -451,10 +451,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.15
-  m_fontSizeBase: 20
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -712,7 +712,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 342.45, y: 141.73}
+  m_SizeDelta: {x: 461.65, y: 256.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611082636
 MonoBehaviour:
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1009049853055315898, guid: 9862644b0cb99eb4e87fd1e8c625486e, type: 3}
+  m_Sprite: {fileID: 3462696479282539439, guid: 3eaa3978b628dbc40bcea7b81d67726d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1082,107 +1082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742592015}
   m_CullTransparentMesh: 1
---- !u!1 &756610476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 756610477}
-  - component: {fileID: 756610479}
-  - component: {fileID: 756610478}
-  m_Layer: 5
-  m_Name: TEXDraw
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &756610477
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756610476}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1227809600}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &756610478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756610476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a11dd23e08e5cb942a6a6b4da8d43711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.010813461, g: 0.028301895, b: 0.028301895, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Alignment: {x: 0.5, y: 1}
-  m_Text: "\u012Esivaizduokime slidinink\u0105, kuris kelis kartus stipriai atsispiria
-    lazdomis ir, veikiamos sunkio j\u0117gos, ima leistis nuo stataus kalno. Kuo
-    grei\u010Diau juda slidininkas, tuo labiau did\u0117s trintis ir oro pasiprie\u0161inimas.
-    Kai veikian\u010Dios j\u0117gos susilygina, jos vienos kit\u0105 kompensuoja
-    ir slidininko greitis nustoja kisti. I\u0161 \u0161ios situacijos galime suprasti,
-    kad vien\u0105 objekt\u0105, tuo pat metu, gali veikti daugiau nei viena j\u0117ga.\r\nNesunku
-    suprasti, jog tam tikr\u0105 sunk\u0173 daikt\u0105 yra daug sunkiau pajudinti
-    vienam \u017Emogui nei dviem. Jeigu t\u0105 pat\u012F daikt\u0105 traukia du
-    ar daugiau \u017Emoni\u0173, traukos j\u0117ga yra lygi t\u0173 j\u0117g\u0173
-    sumai. Tokia j\u0117ga dar vadinama j\u0117g\u0173 atstojam\u0105ja. \u012Eprastai
-    j\u0117g\u0105 \u017Eym\u0117sime F, matavimo vienetas \u2013 niutonas (N). J\u0117g\u0173
-    atstojamosios radimas vadinamas j\u0117g\u0173 sud\u0117timi, o sudedamos j\u0117gos
-    \u2013 dedamosiomis j\u0117gomis. Nereikt\u0173 \u0161ios j\u0117gos laikyti
-    nauja, atskira j\u0117ga, nes tai yra tik k\u016Bn\u0105 veikian\u010Di\u0173
-    j\u0117g\u0173 suma.\r\nJau \u017Einome, kad j\u0117gos turi savo krypt\u012F.
-    Pabandykime \u012Fvertinti kas bus, jei tuo pat metu vien\u0105 daikt\u0105 trauksime
-    \u012F dvi prie\u0161ingas kryptis. Jeigu traukiamosios j\u0117gos yra vienodos
-    tuomet egzistuoja j\u0117g\u0173 pusiausvyra. Tok\u012F rei\u0161kin\u012F tiksliau
-    galima apra\u0161yti prisimenant virv\u0117s traukimo var\u017Eybas. Kai atstojamoji
-    j\u0117ga lygi nuliui, virv\u0117 nejuda nei viena kryptimi. Jeigu viena komanda
-    stipriau \u012Fsir\u0119\u017Eia, pusiausvyra sutrinka ir tuomet atstojamoji
-    nebelygi nuliui. \r\n\n"
-  m_Size: 20
-  m_ScrollArea:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  m_Padding:
-    left: 2
-    right: 2
-    top: 2
-    bottom: 2
-  m_Overflow: 5
---- !u!222 &756610479
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756610476}
-  m_CullTransparentMesh: 1
 --- !u!1 &770871445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1244,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818150846}
   m_CullTransparentMesh: 1
+--- !u!1 &908427710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908427711}
+  - component: {fileID: 908427712}
+  m_Layer: 5
+  m_Name: ImageLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &908427711
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908427710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.012970169, y: 0.012970169, z: 0.012970169}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &908427712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908427710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc1b726274f83d4cb4ad258218a8f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagePrefab: {fileID: 2423810130968689375, guid: ba5651a778624a6488260669ed9eab16, type: 3}
+  contentPanel: {fileID: 1227809600}
+  mainUI: {fileID: 635464381}
+  theoryUI: {fileID: 508539240}
+  scrollRect: {fileID: 1403231919}
 --- !u!1 &931358247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.269989, y: 0}
+  m_AnchoredPosition: {x: 19.27002, y: 0}
   m_SizeDelta: {x: -25.92, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1062381129
@@ -1583,6 +1535,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1227809600}
+  - component: {fileID: 1227809602}
+  - component: {fileID: 1227809601}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1601,15 +1555,54 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 756610477}
+  m_Children: []
   m_Father: {fileID: 1062381128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000091552734, y: 0.000030517578}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1227809601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227809599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &1227809602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227809599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1251495804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1693,7 @@ GameObject:
   - component: {fileID: 1389871076}
   - component: {fileID: 1389871075}
   m_Layer: 5
-  m_Name: TheoryButton
+  m_Name: TheoryButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1725,8 +1718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155.78, y: 158}
-  m_SizeDelta: {x: 235.98, y: 207.51}
+  m_AnchoredPosition: {x: 181.64, y: 229.22}
+  m_SizeDelta: {x: 349.43, y: 323.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389871075
 MonoBehaviour:
@@ -1800,7 +1793,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 709646254}
         m_TargetAssemblyTypeName: TheorySceneManager, Assembly-CSharp
-        m_MethodName: LoadCleanView
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1808,6 +1801,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 908427712}
+        m_TargetAssemblyTypeName: ShowTheoryImages, Assembly-CSharp
+        m_MethodName: LoadImagesFromFolder
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TheoryPhotos/Theory2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1389871077
@@ -1886,8 +1891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.31}
-  m_SizeDelta: {x: 700, y: 675.38}
+  m_AnchoredPosition: {x: 0.28, y: -1.16}
+  m_SizeDelta: {x: 2097.29, y: 960.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403231919
 MonoBehaviour:
@@ -1908,7 +1913,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 40
   m_Viewport: {fileID: 1062381128}
   m_HorizontalScrollbar: {fileID: 818150848}
   m_VerticalScrollbar: {fileID: 1488200727}
@@ -2118,7 +2123,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 212.9, y: 146.53}
+  m_SizeDelta: {x: 378.96, y: 256.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576700425
 MonoBehaviour:
@@ -2140,7 +2145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8957324059118975939, guid: a4dc1a6013cce194197aca3afdae9c87, type: 3}
+  m_Sprite: {fileID: 5533480620378506657, guid: 19af8eb6071a2a842bb89971b20cefa1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2309,7 +2314,7 @@ GameObject:
   - component: {fileID: 1988220570}
   - component: {fileID: 1988220573}
   m_Layer: 5
-  m_Name: TheoryButton
+  m_Name: TheoryButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,8 +2339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -427.37, y: 158}
-  m_SizeDelta: {x: 244.4, y: 207.51}
+  m_AnchoredPosition: {x: -275.89, y: 229.22}
+  m_SizeDelta: {x: 358.25, y: 323.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988220570
 MonoBehaviour:
@@ -2383,7 +2388,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 709646254}
         m_TargetAssemblyTypeName: TheorySceneManager, Assembly-CSharp
-        m_MethodName: LoadCleanView
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2391,6 +2396,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 908427712}
+        m_TargetAssemblyTypeName: ShowTheoryImages, Assembly-CSharp
+        m_MethodName: LoadImagesFromFolder
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TheoryPhotos/Theory1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1988220571
@@ -2465,3 +2482,4 @@ SceneRoots:
   - {fileID: 931358251}
   - {fileID: 399080767}
   - {fileID: 709646253}
+  - {fileID: 908427711}

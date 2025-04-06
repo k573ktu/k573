@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.SceneManagement; // Needed for scene loading
 
@@ -42,9 +43,12 @@ public class UiManager : MonoBehaviour
 
     public void GoTheoryScene()
     {
-        SceneManager.LoadScene("TheoryScene"); // Name must match exactly
+        SceneManager.LoadScene("TheoryScene");
     }
-
+    public void GoToTestScene()
+    {
+        SceneManager.LoadScene("TestsScene");
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
