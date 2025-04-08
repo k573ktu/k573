@@ -59,10 +59,15 @@ public class LevelSelectionManager : MonoBehaviour
         }
     }
 
+    void LoadNewLevel()
+    {
+        SceneManager.LoadScene(selectedLevelData.LevelSceneName);
+    }
+
     public void StartSelectedLevel()
     {
         if (selectedLevelData == null || LevelStarting) return;
         LevelStarting = true;
-        SceneManager.LoadScene(selectedLevelData.LevelSceneName);
+        DarkTransition.inst.BlackAppear(LoadNewLevel);
     }
 }

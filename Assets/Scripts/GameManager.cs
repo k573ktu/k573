@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public bool simPlaying;
     bool paused;
+    bool goingToMain;
 
     bool inPauseMeniu;
     [SerializeField] GameObject pauseMeniu;
@@ -70,9 +71,11 @@ public class GameManager : MonoBehaviour
         }
             simPlaying = false;
         paused = false;
+        
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         PrimaryPauseColor = PauseSimulationButton.color;
         inPauseMeniu = false;
+        goingToMain = false;
         Time.timeScale = 1;
 
         foreach (var i in SimulationObjects)
@@ -263,7 +266,9 @@ public class GameManager : MonoBehaviour
 
     public void BackToMain()
     {
-        SceneManager.LoadScene("MainScene");
+        if (goingToMain) return;
+        goingToMain = true;
+        DarkTransition.inst.BlackAppear(()=>SceneManager.LoadScene("MainScene"), false);
     }
 
     public void PauseOn()

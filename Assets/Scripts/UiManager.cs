@@ -19,6 +19,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         GoMain();
+        Time.timeScale = 1;
     }
 
     public void GoMain()
