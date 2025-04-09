@@ -18,6 +18,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         GoMain();
+        Time.timeScale = 1;
     }
 
     public void GoMain()
@@ -53,6 +54,7 @@ public class UiManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GetComponent<LevelSelectionManager>().unselectCurrentSelected();
             GoMain();
         }
     }

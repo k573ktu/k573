@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -28,9 +29,12 @@ public class GameManager : MonoBehaviour
 
     public bool simPlaying;
     bool paused;
+    bool goingToMain;
 
     bool inPauseMeniu;
     [SerializeField] GameObject pauseMeniu;
+
+    public bool displayScene;
 
     private void Awake()
     {
@@ -41,11 +45,37 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        simPlaying = false;
+        if(SceneManager.loadedSceneCount > 1)
+        {
+            displayScene = true;
+            foreach(GameObject obj in gameObject.scene.GetRootGameObjects()) 
+            { 
+                if(obj.name == "Canvas")
+                {
+                    obj.SetActive(false);
+                }
+                if(obj.name == "EventSystem")
+                {
+                    Destroy(obj);
+                }
+                Camera cam;
+                if(obj.TryGetComponent(out cam))
+                {
+                    cam.GetComponent<AudioListener>().enabled = false;
+                }
+            }
+        }
+        else
+        {
+            displayScene = false;
+        }
+            simPlaying = false;
         paused = false;
+        
         PauseSimulationButton.GetComponent<Button>().interactable = false;
         PrimaryPauseColor = PauseSimulationButton.color;
         inPauseMeniu = false;
+        goingToMain = false;
         Time.timeScale = 1;
 
         foreach (var i in SimulationObjects)
@@ -236,7 +266,9 @@ public class GameManager : MonoBehaviour
 
     public void BackToMain()
     {
-        SceneManager.LoadScene("MainScene");
+        if (goingToMain) return;
+        goingToMain = true;
+        DarkTransition.inst.BlackAppear(()=>SceneManager.LoadScene("MainScene"), false);
     }
 
     public void PauseOn()
@@ -258,6 +290,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (displayScene) return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UpdateSimulation();

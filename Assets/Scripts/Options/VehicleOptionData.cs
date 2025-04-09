@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct VehicleData
@@ -35,6 +36,8 @@ public class VehicleOptionData : OptionData
         VehicleData selected = vehicles[(int)Mathf.Round(value)];
 
         currVehicle = Instantiate(selected.vehiclePrefab, selected.vehiclePosition, Quaternion.identity);
+
+        SceneManager.MoveGameObjectToScene(currVehicle, gameObject.scene);
 
         GameManager.inst.StopObjectSimulation(currVehicle);
 

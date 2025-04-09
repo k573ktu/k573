@@ -17,6 +17,9 @@ public class MovementManager : MonoBehaviour
     bool holding;
     [System.NonSerialized] public bool canMove;
 
+    [SerializeField] bool controlableMovement;
+    GameObject cameraTarget;
+
     public GraphicRaycaster graphicRaycaster;
 
     private void OnDrawGizmosSelected()
@@ -26,6 +29,24 @@ public class MovementManager : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(Vector2.zero, MaxCameraBorders);
         }
+    }
+
+    public void FollowObject(GameObject obj)
+    {
+        if (obj == null)
+        {
+            controlableMovement = true;
+        }
+        else
+        {
+            controlableMovement = false;
+            cameraTarget = obj;
+        }
+    }
+
+    public void MakeCameraControlable()
+    {
+        controlableMovement = true;
     }
 
     bool IsPointerOverUI()
@@ -77,28 +98,38 @@ public class MovementManager : MonoBehaviour
     void Update()
     {
         if (!canMove) return;
-        if (Input.GetMouseButtonDown(0))
+
+        if (controlableMovement)
         {
-            if (!IsPointerOverUI())
+            if (Input.GetMouseButtonDown(0))
             {
-                mouseStart = cameraObj.ScreenToWorldPoint(Input.mousePosition);
-                holding = true;
+                if (!IsPointerOverUI())
+                {
+                    mouseStart = cameraObj.ScreenToWorldPoint(Input.mousePosition);
+                    holding = true;
+                }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                holding = false;
+            }
+
+            if (holding)
+            {
+                Vector2 mouseCurrent = cameraObj.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mouseOffset = mouseStart - mouseCurrent;
+                cameraObj.transform.position = new Vector3(cameraObj.transform.position.x + mouseOffset.x, cameraObj.transform.position.y + mouseOffset.y, cameraObj.transform.position.z);
+            }
+
+        }
+        else
+        {
+            if(cameraTarget != null)
+            {
+                cameraObj.transform.position = new Vector3(cameraTarget.transform.position.x, cameraTarget.transform.position.y, cameraObj.transform.position.z);
             }
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            holding = false;
-        }
 
-        if (holding)
-        {
-            Vector2 mouseCurrent = cameraObj.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mouseOffset = mouseStart - mouseCurrent;
-            cameraObj.transform.position = new Vector3(cameraObj.transform.position.x + mouseOffset.x, cameraObj.transform.position.y + mouseOffset.y, cameraObj.transform.position.z);
-        }
-
-        
-        
         updateCameraSize();
 
         if (borderless) return;

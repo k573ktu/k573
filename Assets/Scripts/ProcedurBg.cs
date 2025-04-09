@@ -1,46 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcedurBg : MonoBehaviour
+public class ProceduralBg : MonoBehaviour
 {
     public GameObject starPrefab;
     private int chunkSize = 40;
     private int starsPerChunk = 180;
     private float starSpread = 20f;
-    private float activationDistance = 200f; 
-    public bool drawBorders = true; 
+    private float activationDistance = 200f;
+    public bool drawBorders = true;
     private Dictionary<Vector2Int, GameObject> chunkGrid = new();
     private Transform target;
     public List<Color> starColors;
-
+    public Material starMaterial; // Assign shader-based material in Inspector
 
     void Start()
     {
         target = Camera.main.transform;
         starColors = new List<Color>
         {
-            ConvertRGBtoHSV(157, 180, 255), // O5(V)
-            ConvertRGBtoHSV(162, 185, 255), // B1(V)
-            ConvertRGBtoHSV(167, 188, 255), // B3(V)
-            ConvertRGBtoHSV(170, 191, 255), // B5(V)
-            ConvertRGBtoHSV(175, 195, 255), // B8(V)
-            ConvertRGBtoHSV(186, 204, 255), // A1(V)
-            ConvertRGBtoHSV(192, 209, 255), // A3(V)
-            ConvertRGBtoHSV(202, 216, 255), // A5(V)
-            ConvertRGBtoHSV(228, 232, 255), // F0(V)
-            ConvertRGBtoHSV(237, 238, 255), // F2(V)
-            ConvertRGBtoHSV(251, 248, 255), // F5(V)
-            ConvertRGBtoHSV(255, 249, 249), // F8(V)
-            ConvertRGBtoHSV(255, 245, 236), // G2(V)
-            ConvertRGBtoHSV(255, 244, 232), // G5(V)
-            ConvertRGBtoHSV(255, 241, 223), // G8(V)
-            ConvertRGBtoHSV(255, 235, 209), // K0(V)
-            ConvertRGBtoHSV(255, 215, 174), // K4(V)
-            ConvertRGBtoHSV(255, 198, 144), // K7(V)
-            ConvertRGBtoHSV(255, 190, 127), // M2(V)
-            ConvertRGBtoHSV(255, 187, 123), // M4(V)
-            ConvertRGBtoHSV(255, 187, 123)  // M6(V)
+            ConvertRGBtoHSV(157, 180, 255), ConvertRGBtoHSV(162, 185, 255),
+            ConvertRGBtoHSV(167, 188, 255), ConvertRGBtoHSV(170, 191, 255),
+            ConvertRGBtoHSV(175, 195, 255), ConvertRGBtoHSV(186, 204, 255),
+            ConvertRGBtoHSV(192, 209, 255), ConvertRGBtoHSV(202, 216, 255),
+            ConvertRGBtoHSV(228, 232, 255), ConvertRGBtoHSV(237, 238, 255),
+            ConvertRGBtoHSV(251, 248, 255), ConvertRGBtoHSV(255, 249, 249),
+            ConvertRGBtoHSV(255, 245, 236), ConvertRGBtoHSV(255, 244, 232),
+            ConvertRGBtoHSV(255, 241, 223), ConvertRGBtoHSV(255, 235, 209),
+            ConvertRGBtoHSV(255, 215, 174), ConvertRGBtoHSV(255, 198, 144),
+            ConvertRGBtoHSV(255, 190, 127), ConvertRGBtoHSV(255, 187, 123),
+            ConvertRGBtoHSV(255, 187, 123)
         };
+
+        // Apply the parallax shader material to the star prefab
+        if (starPrefab != null && starMaterial != null)
+        {
+            starPrefab.GetComponent<SpriteRenderer>().material = starMaterial;
+        }
     }
 
     Color ConvertRGBtoHSV(float r, float g, float b)
@@ -48,7 +44,18 @@ public class ProcedurBg : MonoBehaviour
         Color.RGBToHSV(new Color(r / 255f, g / 255f, b / 255f), out float h, out float s, out float v);
         return Color.HSVToRGB(h, s, v);
     }
-    void Update(){genChunks();}
+
+    void Update()
+    {
+        genChunks();
+
+        // Update parallax effect by sending camera position to the shader
+        if (starMaterial != null && target != null)
+        {
+            starMaterial.SetVector("_CameraPos", target.position);
+        }
+    }
+
     void genChunks()
     {
         if (target == null) return;
@@ -56,7 +63,8 @@ public class ProcedurBg : MonoBehaviour
         Vector2Int gridPos = new Vector2Int(
             Mathf.FloorToInt(targetPos.x / chunkSize),
             Mathf.FloorToInt(targetPos.y / chunkSize)
-                                            );
+        );
+
         for (int x = -2; x <= 2; x++)
         {
             for (int y = -2; y <= 2; y++)
@@ -74,21 +82,26 @@ public class ProcedurBg : MonoBehaviour
             }
         }
     }
-    void createChunk(Vector2Int chunkKey)  
+
+    void createChunk(Vector2Int chunkKey)
     {
         GameObject chunk = new GameObject($"Chunk {chunkKey.x} {chunkKey.y}");
         chunk.transform.parent = transform;
         chunk.transform.position = new Vector3(chunkKey.x * chunkSize, chunkKey.y * chunkSize, 0);
+
         if (drawBorders)
         {
             addBorder(chunk);
         }
+
         chunkGrid[chunkKey] = chunk;
     }
+
     void addStars(Vector2Int chunkKey)
     {
         GameObject chunk = chunkGrid[chunkKey];
         if (chunk.transform.childCount > 0) return;
+
         for (int i = 0; i < starsPerChunk; i++)
         {
             Vector3 starPos = new Vector3(
@@ -96,14 +109,16 @@ public class ProcedurBg : MonoBehaviour
                 Random.Range(-starSpread, starSpread),
                 0
             ) + chunk.transform.position;
-            GameObject tempStar = starPrefab;
-            float tempNumber = Random.value*0.13f;
-            tempStar.transform.localScale = new Vector3(tempNumber, tempNumber, 1);
-            tempStar.GetComponent<SpriteRenderer>().color = //starColors[i];
-                starColors[Random.Range(0, starColors.Count)];
-            Instantiate(starPrefab, starPos, Quaternion.identity, chunk.transform);
+
+            GameObject newStar = Instantiate(starPrefab, starPos, Quaternion.identity, chunk.transform);
+
+            // Assign random size & color
+            float size = Random.value * 0.13f;
+            newStar.transform.localScale = new Vector3(size, size, 1);
+            newStar.GetComponent<SpriteRenderer>().color = starColors[Random.Range(0, starColors.Count)];
         }
     }
+
     void addBorder(GameObject chunk)
     {
         LineRenderer line = chunk.AddComponent<LineRenderer>();
