@@ -1,12 +1,11 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Needed for scene loading
 
 public class UiManager : MonoBehaviour
 {
-
     [SerializeField] GameObject MainUi;
-
     [SerializeField] GameObject SelectionUi;
-
     [SerializeField] GameObject OptionsUi;
 
     public static UiManager inst;
@@ -43,6 +42,14 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
     }
 
+    public void GoTheoryScene()
+    {
+        SceneManager.LoadScene("TheoryScene");
+    }
+    public void GoToTestScene()
+    {
+        SceneManager.LoadScene("TestsScene");
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -51,5 +58,4 @@ public class UiManager : MonoBehaviour
             GoMain();
         }
     }
-
 }

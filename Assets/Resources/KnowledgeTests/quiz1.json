@@ -1,0 +1,211 @@
+[
+  {
+    "question": "Vežimėlis, kurio masė {m}kg, juda su pagreičiu {a}m/s². Koks bus jėgos dydis?",
+    "answers": ["{m*a}", "{m/a}", "{a/m}", "{m+a}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Raketa, kurios masė {m}kg, pagreitėja {a}m/s² greičiu. Kokia bus raketos variklio jėga?",
+    "answers": ["{m*a}", "{m/a}", "{a/m}", "{m-a}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Akmuo, kurio masė {m}kg, buvo išmestas pro langą. Kam lygi sunkio jėga?",
+    "answers": ["{m*g}", "{m/g}", "{g/m}", "{m*10}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Kūnas įgyja {a}m/s² pagreitį, kai jam taikoma {f}N jėga. Kokia yra kūno masė?",
+    "answers": ["{f/a}", "{a/f}", "{a*f}", "{f+a}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Kūną veikia trys jėgos: {f1}N, {f2}N ir {f3}N. Kokia yra jų atstojamoji jėga?",
+    "answers": ["{fSum}", "{fDif}", "{f1+f2-f3}", "{f1-f2+f3}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Dvi planetos, kurių masės yra {m1}kg ir {m2}kg, nutolusios viena nuo kitos per\n {r}m. Kokia traukos jėga tarp jų?",
+    "answers": ["{G*(m1*m2/r^2)}", "{G*(m1+m2/r)}", "{(m1+m2/r)}", "{G*(m1+m2/r^2)}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Traukos jėga tarp dviejų objektų {f}N. Jei jų masės yra {m1}kg ir {m2}kg,\nkokiu atstumu jie yra nutolę vienas nuo kito?",
+    "answers": ["{sqrt((G*m1*m2)/f)}", "{(G*m1*m2)/f}", "{(G+m1+m2)/f}", "{G+m1+m2}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+  {
+    "question": "Traukos jėga tarp dviejų kūnų yra {f}N. Vieno jų masė {m1}kg,\no atstumas tarp jų {r}m. Kiek sveria antras kūnas?",
+    "answers": ["{f*r^2 / G * m1}", "{f*r/G*m1}", "{f*r^2/m1}", "{r^2/m1*G}"],
+    "correctIndex": 0,
+    "dynamic": true
+  },
+
+    {
+      "question": "Kuris iš teiginių geriausiai apibūdina Pirmąjį Niutono dėsnį?",
+      "answers": [
+        "Kūną visada veikia atgalinė jėga",
+        "Kūnas išlaiko ramybės ar tolygaus judėjimo būseną, jei jo neveikia išorinės jėgos",
+        "Jei kūnas išlaiko ramybės būseną, tai jį veikia daug jėgų",
+        "Kiekviena jėga sukelia judėjimą"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "question": "Koks yra jėgos matavimo vienetas?",
+      "answers": ["Džaulis", "Niutonas", "Paskalis", "Vatukas"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Kuris dėsnis apibrėžia kūno judėjimą tolygiai, kol kažkas jo sustabdo arba jis neatsitrenkia į kažką?",
+      "answers": [
+        "Pirmasis Niutono dėsnis",
+        "Antrasis Niutono dėsnis",
+        "Trečiasis Niutono dėsnis",
+        "Masės išsaugojimo dėsnis"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "question": "Kas yra pagreitis?",
+      "answers": [
+        "Kūno padėties pasikeitimas",
+        "Jėga, veikianti kūną",
+        "Greičio pokytis per laiką",
+        "Greičio sinonimas"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "question": "Ką sako trečiasis Niutono dėsnis?",
+      "answers": [
+        "Kiekviena veikianti jėga turi lygią ir priešingą reakcijas",
+        "Pagreitis visada išlieka pastovus(konstanta)",
+        "Sunkis ir masė yra tas pats jei kūnas juda",
+        "Kūnas be jėgos juda greičiau"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "question": "Kuris iš šių pavyzdžių geriausiai atspindi trečiąjį Niutono dėsnį?",
+      "answers": [
+        "Kūnas krentantis žemyn pasieks nulinę jėgą",
+        "Kūnas juda tolygiai, kol jį stabdo trintis",
+        "Raketa kils aukštyn, nes variklis ją stums į viršų",
+        "Kūnas greitėja kalno šlaitu"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "question": "Kada pagreitis gali būti nulinis?",
+      "answers": [
+        "Kai greitis yra pastovus",
+        "Kūnas gali pasiekti nulinį pagreitį tuo metu, kai jį veikia bent 5 jėgos veikia",
+        "Jei jėgų atstojamoji lygi nuliui",
+        "Pagreitis visada yra nulinis, nebent kūną veikia sunkio jėga"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "question": "Kas lemia didesnį pagreitį?",
+      "answers": [
+        "Didelė masė ir maža jėga",
+        "Maža masė ir didelė jėga",
+        "Maža masė ir maža jėga",
+        "Didelė masė ir didelė jėga"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "question": "Jei objektas nejuda, ar tai reiškia, kad jėgos jo neveikia?",
+      "answers": [
+        "Taip, nes objektas nejuda",
+        "Ne, nes jėgos gali būti nepakankamai stiprios",
+        "Taip, nes objektas turi masę",
+        "Jėgos veikia kūną tik tuomet, kai jis juda"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "question": "Kas atsitinka, kai dvi priešingos jėgos veikia kūną vienodu stiprumu?",
+      "answers": [
+        "Kūnas deformuojasi",
+        "Kūnas pradeda judėti",
+        "Kūnas staigiai sustoja",
+        "Kūnas išlieka ramybės būsenoj arba juda tolygiai"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "question": "Kuri jėga visada veikia kūnus Žemėje?",
+      "answers": ["Trintis", "Sunkio jėga", "Normalioji jėga", "Elektros jėga"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Kuris iš šių teiginių apibūdina pagreitį?",
+      "answers": ["Kelias padalintas iš laiko", "Laikas padalintas iš greičio", "Greičio pokytis per laiką", "Stūmos jėga"],
+      "correctIndex": 2
+    },
+    {
+      "question": "Jei jėga veikia kūną, bet jis nepajuda, ką tai reiškia?",
+      "answers": [
+        "Kūnas yra per daug lengvas, todėl jėga jo nejudina",
+        "Stacionarus kūnas pats turi savo jėgą, kuri didesnė už išorinę jėgą",
+        "Jėga per maža, jog išjudintų kūną",
+        "Yra stebimas per trumpas laiko tarpas. Praėjus laikui kūnas pajudės"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "question": "Kuris reiškinys geriausiai paaiškina, kodėl keleivis juda į priekį, kai automobilis staiga sustoja?",
+      "answers": [
+        "Antrasis dėsnis",
+        "Inercija",
+        "Traukos jėga",
+        "Reakcijos jėga"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "question": "Kokia jėga lėtina judantį kūną?",
+      "answers": ["Traukos jėga", "Normalioji jėga", "Trinties jėga", "Sunkio jėga"],
+      "correctIndex": 2
+    },
+    {
+      "question": "Pagal kurį dėsnį: kuo didesnė jėga, tuo didesnis pagreitis?",
+      "answers": ["Pirmasis", "Antrasis", "Trečiasis", "Ketvirtasis"],
+      "correctIndex": 1
+    },
+    {
+      "question": "Nuo ko priklauso kaip kūnas greitai pajudės iš vietos?",
+      "answers": ["Kūno greičio", "Pagreičio", "Išorinės jėgos", "Laiko"],
+      "correctIndex": 2
+    },
+    {
+      "question": "Ką apibūdina Niutono visuotinės traukos dėsnis?",
+      "answers": [
+        "Kūno pagreitį, kai jį veikia išorinė jėga",
+        "Kūnų netolydų judėjimą",
+        "Traukos jėgą tarp dviejų kūnų",
+        "Jėgą, kurią kūnas patiria dėl pastovios traukos jėgos C = 5.67"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "question": "Kokie yra pagreičio matavimo vienetai?",
+      "answers": [
+        "m/s",
+        "m/s²",
+        "N/kg",
+        "kg·m/s"
+      ],
+      "correctIndex": 1
+    }
+  ]

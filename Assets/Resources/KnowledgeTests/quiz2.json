@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Kuri planeta yra arčiausiai Saulės?",
+    "answers": [
+      "Merkurijus",
+      "Venera",
+      "Žemė",
+      "Marsas"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Kuri planeta yra karščiausia Saulės sistemoje?",
+    "answers": [
+      "Merkurijus",
+      "Venera",
+      "Marsas",
+      "Neptūnas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kokia yra pagrindinė Veneros atmosferos sudedamoji dalis?",
+    "answers": [
+      "Azotas",
+      "Deguonis",
+      "Anglies dioksidas",
+      "Vandenilis"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kokia planeta turi didžiausią žinomą kalną Saulės sistemoje?",
+    "answers": [
+      "Marsas",
+      "Žemė",
+      "Venera",
+      "Jupiteris"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Kiek procentų Žemės paviršiaus dengia vanduo?",
+    "answers": [
+      "50%",
+      "60%",
+      "70%",
+      "80%"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kurioje planetoje metų laikai trunka neįprastai ilgai dėl jos pasvirimo?",
+    "answers": [
+      "Uranas",
+      "Neptūnas",
+      "Marsas",
+      "Venera"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Kurioje planetoje diena yra ilgesnė nei metai?",
+    "answers": [
+      "Merkurijus",
+      "Venera",
+      "Žemė",
+      "Neptūnas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kuri planeta yra laikoma raudona dėl geležies oksido?",
+    "answers": [
+      "Merkurijus",
+      "Venera",
+      "Marsas",
+      "Jupiteris"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kuri planeta turi stiprų magnetinį lauką ir daugiau nei 90 palydovų?",
+    "answers": [
+      "Saturnas",
+      "Jupiteris",
+      "Uranas",
+      "Neptūnas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kuri planeta turi matomus žiedus, sudarytus iš ledo ir akmenų?",
+    "answers": [
+      "Jupiteris",
+      "Uranas",
+      "Neptūnas",
+      "Saturnas"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Kokia planeta sukasi beveik gulėdama ant šono?",
+    "answers": [
+      "Saturnas",
+      "Uranas",
+      "Venera",
+      "Marsas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kuri yra tolimiausia Saulės sistemos planeta?",
+    "answers": [
+      "Uranas",
+      "Saturnas",
+      "Marsas",
+      "Neptūnas"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Kurioje planetoje vyksta vienos stipriausių audrų Saulės sistemoje?",
+    "answers": [
+      "Neptūnas",
+      "Jupiteris",
+      "Saturnas",
+      "Marsas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kuri planeta turi palydovą pavadintą Europos vardu?",
+    "answers": [
+      "Marsas",
+      "Saturnas",
+      "Jupiteris",
+      "Uranas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kiek planetų sudaro Saulės sistemą?",
+    "answers": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kas yra laikoma Saulės sistemos centru?",
+    "answers": [
+      "Žemė",
+      "Jupiteris",
+      "Saulė",
+      "Marsas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kurioje planetoje sukimosi kryptis yra priešinga nei daugumos kitų planetų?",
+    "answers": [
+      "Merkurijus",
+      "Venera",
+      "Uranas",
+      "Neptūnas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Kuris Saulės sistemos objektas yra pagrindinis mūsų planetos palydovas?",
+    "answers": [
+      "Marsas",
+      "Venera",
+      "Mėnulis",
+      "Merkurijus"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kaip vadinamas aukščiausias kalnas Marse?",
+    "answers": [
+      "Everestas",
+      "Vezuvijus",
+      "Olimpo kalnas",
+      "Etna"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Kuris Visatos objektas laikomas nematomu, bet turi itin galingą traukos jėgą ?",
+    "answers": [
+      "Baltoji nykštukė",
+      "Juodoji skylė",
+      "Saulė",
+      "Supernova"
+    ],
+    "correctIndex": 1
+  }
+]
