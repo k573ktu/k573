@@ -29,11 +29,5 @@ public class TheorySceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void Update()
-    {
-        if (mainUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("MainScene"); // <- update with your actual main menu scene name
-        }
-    }
+
 }

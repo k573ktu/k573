@@ -7,6 +7,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject MainUi;
     [SerializeField] GameObject SelectionUi;
     [SerializeField] GameObject OptionsUi;
+    [SerializeField] GameObject TheoryUi;
+    [SerializeField] GameObject TestUi;
 
     public static UiManager inst;
 
@@ -26,6 +28,8 @@ public class UiManager : MonoBehaviour
         MainUi.SetActive(true);
         SelectionUi.SetActive(false);
         OptionsUi.SetActive(false);
+        TheoryUi.SetActive(false);
+        TestUi.SetActive(false);
     }
 
     public void GoSelection()
@@ -33,6 +37,8 @@ public class UiManager : MonoBehaviour
         MainUi.SetActive(false);
         OptionsUi.SetActive(false);
         SelectionUi.SetActive(true);
+        TheoryUi.SetActive(false);
+        TestUi.SetActive(false);
     }
 
     public void GoOptions()
@@ -40,22 +46,36 @@ public class UiManager : MonoBehaviour
         MainUi.SetActive(false);
         OptionsUi.SetActive(true);
         SelectionUi.SetActive(false);
+        TheoryUi.SetActive(false);
+        TestUi.SetActive(false);
     }
 
-    public void GoTheoryScene()
+    public void GoTheory()
     {
-        SceneManager.LoadScene("TheoryScene");
+        MainUi.SetActive(false);
+        OptionsUi.SetActive(false);
+        SelectionUi.SetActive(false);
+        TheoryUi.SetActive(true);
+        TestUi.SetActive(false);
     }
-    public void GoToTestScene()
+    public void GoTest()
     {
-        SceneManager.LoadScene("TestsScene");
+        MainUi.SetActive(false);
+        OptionsUi.SetActive(false);
+        SelectionUi.SetActive(false);
+        TheoryUi.SetActive(false);
+        TestUi.SetActive(true);
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GetComponent<LevelSelectionManager>().unselectCurrentSelected();
-            GoMain();
+            if(!TheoryUi.activeSelf && !TestUi.activeSelf && !MainUi.activeSelf)
+            {
+                GetComponent<LevelSelectionManager>().unselectCurrentSelected();
+                GoMain();
+            }
         }
     }
 }

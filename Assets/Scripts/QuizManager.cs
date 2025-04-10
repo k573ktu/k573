@@ -259,7 +259,7 @@ public class QuizManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && titlePanel.transform.parent.gameObject.activeSelf)
         {
             if (isViewingResults)
             {
@@ -269,9 +269,14 @@ public class QuizManager : MonoBehaviour
                 currentQuestionIndex = 0;
                 isViewingResults = false;
             }
+            else if (quizPanel.activeSelf)
+            {
+                ReturnToTitle();
+            }
             else if (titlePanel.activeSelf)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene"); // Replace with your actual main menu scene name
+                ReturnToTitle();
+                UiManager.inst.GoMain();
             }
         }
     }

@@ -47,10 +47,17 @@ public class ShowTheoryImages : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && theoryUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && mainUI.transform.parent.gameObject.activeSelf)
         {
-            theoryUI.SetActive(false);
-            mainUI.SetActive(true);
+            if (theoryUI.activeSelf)
+            {
+                theoryUI.SetActive(false);
+                mainUI.SetActive(true);
+            }
+            else if(mainUI.activeSelf)
+            {
+                UiManager.inst.GoMain();
+            }
         }
     }
 
