@@ -31,7 +31,7 @@ public class OptionData : MonoBehaviour
 
     public virtual void OnSimulationStarted()
     {
-        if (DisableOnSimulationStart)
+        if (DisableOnSimulationStart && slider!=null)
         {
             slider.interactable = false;
         }
@@ -39,7 +39,7 @@ public class OptionData : MonoBehaviour
 
     public virtual void OnSimulationStopped()
     {
-        if (DisableOnSimulationStart)
+        if (DisableOnSimulationStart && slider != null)
         {
             slider.interactable = true;
         }
@@ -47,7 +47,10 @@ public class OptionData : MonoBehaviour
 
     public void OnUpdated()
     {
-        UpdateDisplay(slider.value);
-        OnValueChanged(slider.value);
+        if (slider != null)
+        {
+            UpdateDisplay(slider.value);
+            OnValueChanged(slider.value);
+        }
     }
 }

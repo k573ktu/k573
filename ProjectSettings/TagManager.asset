@@ -6,6 +6,7 @@ TagManager:
   tags:
   - box
   - main
+  - Movable
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - MovementIgnoredUI
-  - 
+  - Movable
   - 
   - 
   - 

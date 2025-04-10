@@ -97,14 +97,14 @@ public class GameManager : MonoBehaviour
 
         if (obj.TryGetComponent(out currRigid))
         {
-            currRigid.simulated = false;
+            currRigid.bodyType = RigidbodyType2D.Static;
             objStartPositions.Add(new Vector2());
         }
         else
         {
             foreach (var j in obj.GetComponentsInChildren<Rigidbody2D>())
             {
-                j.simulated = false;
+                j.bodyType = RigidbodyType2D.Static;
                 objStartPositions.Add(new Vector2());
             }
         }
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
 
             if (i.TryGetComponent(out currRigid))
             {
-                currRigid.simulated = true;
+                currRigid.bodyType = RigidbodyType2D.Dynamic;
                 objStartPositions[counter] = i.transform.position;
                 counter++;
             }
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
             {
                 foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
                 {
-                    j.simulated = true;
+                    j.bodyType = RigidbodyType2D.Dynamic;
                     objStartPositions[counter] = j.transform.position;
                     counter++;
                 }
@@ -190,9 +190,9 @@ public class GameManager : MonoBehaviour
 
             if (i.TryGetComponent(out currRigid))
             {
-                currRigid.simulated = false;
                 currRigid.linearVelocity = Vector2.zero;
                 currRigid.angularVelocity = 0;
+                currRigid.bodyType = RigidbodyType2D.Static;
                 i.transform.position = objStartPositions[counter];
                 counter++;
                 i.transform.rotation = Quaternion.identity;
@@ -201,9 +201,9 @@ public class GameManager : MonoBehaviour
             {
                 foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
                 {
-                    j.simulated = false;
                     j.linearVelocity = Vector2.zero;
                     j.angularVelocity = 0;
+                    j.bodyType = RigidbodyType2D.Static;
                     j.transform.position = objStartPositions[counter];
                     counter++;
                     j.transform.rotation = Quaternion.identity;

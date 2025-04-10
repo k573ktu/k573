@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -49,7 +50,7 @@ public class MovementManager : MonoBehaviour
         controlableMovement = true;
     }
 
-    bool IsPointerOverUI()
+    public bool IsPointerOverUI()
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
         eventData.position = Input.mousePosition;
@@ -61,6 +62,23 @@ public class MovementManager : MonoBehaviour
         {
             if (result.gameObject.layer == LayerMask.NameToLayer("UI"))
             {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool IsPointerOverMovable(out GameObject movableObj)
+    {
+        movableObj = null;
+
+        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        foreach(var hit in Physics2D.OverlapPointAll(mouse, LayerMask.GetMask("Movable")))
+        {
+            if (hit.gameObject.activeSelf)
+            {
+                movableObj = hit.gameObject;
                 return true;
             }
         }
@@ -94,35 +112,44 @@ public class MovementManager : MonoBehaviour
         cameraWorldSize.x = cameraWorldSize.y * Screen.width / Screen.height;
     }
 
+    Action<GameObject> movingFunction;
+
+    public void AssignMovingFunction(Action<GameObject> function)
+    {
+        movingFunction = function;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!canMove) return;
 
-        if (controlableMovement)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            GameObject obj;
+            if (!GameManager.inst.simPlaying && IsPointerOverMovable(out obj))
             {
-                if (!IsPointerOverUI())
-                {
-                    mouseStart = cameraObj.ScreenToWorldPoint(Input.mousePosition);
-                    holding = true;
-                }
+                movingFunction.Invoke(obj);
             }
-            if (Input.GetMouseButtonUp(0))
+            else if (controlableMovement && !IsPointerOverUI())
             {
-                holding = false;
+                mouseStart = cameraObj.ScreenToWorldPoint(Input.mousePosition);
+                holding = true;
             }
-
-            if (holding)
-            {
-                Vector2 mouseCurrent = cameraObj.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mouseOffset = mouseStart - mouseCurrent;
-                cameraObj.transform.position = new Vector3(cameraObj.transform.position.x + mouseOffset.x, cameraObj.transform.position.y + mouseOffset.y, cameraObj.transform.position.z);
-            }
-
         }
-        else
+        if (Input.GetMouseButtonUp(0))
+        {
+            holding = false;
+        }
+
+        if (holding)
+        {
+            Vector2 mouseCurrent = cameraObj.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseOffset = mouseStart - mouseCurrent;
+            cameraObj.transform.position = new Vector3(cameraObj.transform.position.x + mouseOffset.x, cameraObj.transform.position.y + mouseOffset.y, cameraObj.transform.position.z);
+        }
+
+        if(!controlableMovement)
         {
             if(cameraTarget != null)
             {

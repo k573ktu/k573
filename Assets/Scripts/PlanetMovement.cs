@@ -23,8 +23,12 @@ public class PlanetMovement : SimulationStart
 
     public override void OnSimulationStart()
     {
-        started = true;
-        thisPlanet.linearVelocity = startVelocity;
+        if (gameObject.activeSelf)
+        {
+            started = true;
+
+            thisPlanet.linearVelocity = startVelocity;
+        }
     }
 
     public override void OnSimulationStop()

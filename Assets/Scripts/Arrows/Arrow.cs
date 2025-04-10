@@ -20,6 +20,7 @@ public class Arrow : MonoBehaviour
 
     Vector2 endPoint;
 
+    [SerializeField] bool showAlways;
 
     protected virtual void Start()
     {
@@ -27,21 +28,32 @@ public class Arrow : MonoBehaviour
         arrowLine.startColor = ArrowColor;
         arrowLine.material.color = ArrowColor;
         arrowLine.enabled = false;
-        if (GameManager.inst.displayScene)
-        {
-            arrowPoint = Instantiate(arrowPointPrefab);
-            SceneManager.MoveGameObjectToScene(arrowPoint, gameObject.scene);
-            arrowPoint.GetComponent<SpriteRenderer>().color = ArrowColor;
-            arrowPoint.SetActive(false);
-        }
+        
+        arrowPoint = Instantiate(arrowPointPrefab);
+        SceneManager.MoveGameObjectToScene(arrowPoint, gameObject.scene);
+        arrowPoint.GetComponent<SpriteRenderer>().color = ArrowColor;
+        arrowPoint.SetActive(false);
 
+        if (GameManager.inst.displayScene) return;
+        
         GameManager.inst.RegisterArrow(this);
+        if (showAlways)
+        {
+            show();
+        }
+        UpdateDisplay();
     }
 
     protected virtual void UpdateArrowDirection() { }
 
     public void show()
     {
+        if (GameManager.inst.displayScene) return;
+        if (!analyzedObject.activeSelf)
+        {
+            hide();
+            return;
+        }
         arrowLine.enabled = true;
         arrowPoint.SetActive(true);
     }
@@ -55,6 +67,7 @@ public class Arrow : MonoBehaviour
     protected virtual void UpdateDisplay()
     {
         if (!arrowLine.enabled) return;
+        
         arrowLine.SetPosition(0, analyzedObject.transform.position);
         arrowLine.SetPosition(1, endPoint);
         arrowPoint.transform.position = endPoint;
@@ -64,6 +77,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         if (GameManager.inst.displayScene) return;
+        if (showAlways) show();
         UpdateArrowDirection();
         endPoint = (Vector2)analyzedObject.transform.position + arrowDirection;
         UpdateDisplay();  
