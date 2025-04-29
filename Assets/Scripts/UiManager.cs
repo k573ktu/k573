@@ -1,4 +1,5 @@
 using NUnit.Framework.Internal;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // Needed for scene loading
 
@@ -12,9 +13,12 @@ public class UiManager : MonoBehaviour
 
     public static UiManager inst;
 
+    List<MainButtonSelected> mainButtons;
+
     private void Awake()
     {
         if (inst == null) inst = this;
+        mainButtons = new List<MainButtonSelected>();
     }
 
     private void Start()
@@ -23,8 +27,22 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void AssignMainButton(MainButtonSelected code)
+    {
+        mainButtons.Add(code);
+    }
+
+    void ResetButtons()
+    {
+        foreach(var i in mainButtons)
+        {
+            i.ResetSize();
+        }
+    }
+
     public void GoMain()
     {
+        ResetButtons();
         MainUi.SetActive(true);
         SelectionUi.SetActive(false);
         OptionsUi.SetActive(false);
