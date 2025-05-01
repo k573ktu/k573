@@ -34,7 +34,8 @@ public class UiManager : MonoBehaviour
 
     public void ResetButtons()
     {
-        foreach(var i in mainButtons)
+        mainButtons.RemoveAll(item => (item == null || item.RectNull()));
+        foreach (var i in mainButtons)
         {
             i.ResetSize();
         }

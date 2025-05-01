@@ -238,21 +238,16 @@ public class QuizManager : MonoBehaviour
             TextMeshProUGUI[] textFields = entry.GetComponentsInChildren<TextMeshProUGUI>();
             textFields[0].text = $"{i + 1}. {question.question}";
 
-            for (int j = 1; j < textFields.Length; j++)
-                Destroy(textFields[j].gameObject);
-
-            for (int j = 0; j < question.answers.Length; j++)
+            for (int j = 0; j < textFields.Length - 1; j++)
             {
-                GameObject answerLine = Instantiate(textFields[0].gameObject, entry.transform);
-                var text = answerLine.GetComponent<TextMeshProUGUI>();
-                text.text = question.answers[j];
+                textFields[j+1].text = question.answers[j];
 
                 if (j == question.correctIndex)
-                    text.color = Color.green;
+                    textFields[j + 1].color = Color.green;
                 else if (j == selected)
-                    text.color = Color.red;
+                    textFields[j + 1].color = Color.red;
                 else
-                    text.color = Color.white;
+                    textFields[j + 1].color = Color.white;
             }
         }
     }
@@ -263,6 +258,7 @@ public class QuizManager : MonoBehaviour
         {
             if (isViewingResults)
             {
+                UiManager.inst.ResetButtons();
                 resultsPanel.SetActive(false);
                 titlePanel.SetActive(true);
                 selectedAnswers = null;
@@ -271,10 +267,12 @@ public class QuizManager : MonoBehaviour
             }
             else if (quizPanel.activeSelf)
             {
+                UiManager.inst.ResetButtons();
                 ReturnToTitle();
             }
             else if (titlePanel.activeSelf)
             {
+                UiManager.inst.ResetButtons();
                 ReturnToTitle();
                 UiManager.inst.GoMain();
             }
