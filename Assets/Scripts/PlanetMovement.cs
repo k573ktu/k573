@@ -1,9 +1,7 @@
 using UnityEngine;
-
 public class PlanetMovement : SimulationStart
 {
-    const double G = 0.0667428; // Scaled gravitational constant
-    //const double G = 6.67428; // Scaled gravitational constant
+    const double G = 0.0667428;
 
     bool started;
 
@@ -14,6 +12,10 @@ public class PlanetMovement : SimulationStart
 
     public Vector2 currForce;
     public Vector2 currSunForce;
+
+
+    const float planetInfluenceFactor = 0.02f; // otherPlanet influence mult
+    const float minPlanetDistance = 0.5f; // Minimum safe distance between planets to prevent collapse
 
     void Start()
     {
@@ -36,36 +38,40 @@ public class PlanetMovement : SimulationStart
         started = false;
         GetComponent<TrailRenderer>().Clear();
     }
-
     void FixedUpdate()
     {
-        if (started && otherPlanet != null)
+        if (!started) return;
+        if (sun != null)
         {
-            Vector2 direction = (otherPlanet.position - thisPlanet.position).normalized;
-            float distance = Vector2.Distance(thisPlanet.position, otherPlanet.position);
+            ApplyGravity(sun, 1f, out currSunForce);
 
-            Vector2 sundirection = (sun.position - thisPlanet.position).normalized;
-            float sundistance = Vector2.Distance(thisPlanet.position, sun.position);
-
-            if (distance > 0)
-            {
-                double forceMagnitude = G * (thisPlanet.mass * otherPlanet.mass) / (distance * distance);
-                Vector2 force = direction * (float)forceMagnitude;
-
-                thisPlanet.AddForce(force);
-
-                currForce = force;
-            }
-
-            if (sundistance > 0)
-            {
-                double forceMagnitude = G * (thisPlanet.mass * sun.mass) / (sundistance * sundistance);
-                Vector2 force = sundirection * (float)forceMagnitude;
-
-                thisPlanet.AddForce(force);
-
-                currSunForce = force;
-            }
+        }
+        if (otherPlanet != null && otherPlanet != thisPlanet)
+        {
+            ApplyGravity(otherPlanet, planetInfluenceFactor, out currForce);
         }
     }
+
+    void ApplyGravity(Rigidbody2D otherBody, float influenceScale, out Vector2 forceOut)
+    {
+        Vector2 direction = otherBody.position - thisPlanet.position;
+        float distanceSqr = direction.sqrMagnitude;
+
+        if (distanceSqr == 0)
+        {
+            forceOut = Vector2.zero;
+            return;
+        }
+
+        Vector2 forceDir = direction.normalized;
+        float forceMagnitude = (float)(G * thisPlanet.mass * otherBody.mass / distanceSqr);
+        Vector2 force = forceDir * forceMagnitude * influenceScale;
+
+        thisPlanet.AddForce(force);
+        forceOut = force;
+    }
+
 }
+
+
+
