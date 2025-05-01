@@ -51,6 +51,7 @@ public class ShowTheoryImages : MonoBehaviour
         {
             if (theoryUI.activeSelf)
             {
+                UiManager.inst.ResetButtons();
                 theoryUI.SetActive(false);
                 mainUI.SetActive(true);
             }

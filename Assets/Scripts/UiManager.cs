@@ -32,7 +32,7 @@ public class UiManager : MonoBehaviour
         mainButtons.Add(code);
     }
 
-    void ResetButtons()
+    public void ResetButtons()
     {
         foreach(var i in mainButtons)
         {
@@ -52,6 +52,7 @@ public class UiManager : MonoBehaviour
 
     public void GoSelection()
     {
+        ResetButtons();
         MainUi.SetActive(false);
         OptionsUi.SetActive(false);
         SelectionUi.SetActive(true);
@@ -61,6 +62,7 @@ public class UiManager : MonoBehaviour
 
     public void GoOptions()
     {
+        ResetButtons();
         MainUi.SetActive(false);
         OptionsUi.SetActive(true);
         SelectionUi.SetActive(false);
@@ -70,6 +72,7 @@ public class UiManager : MonoBehaviour
 
     public void GoTheory()
     {
+        ResetButtons();
         MainUi.SetActive(false);
         OptionsUi.SetActive(false);
         SelectionUi.SetActive(false);
@@ -78,6 +81,7 @@ public class UiManager : MonoBehaviour
     }
     public void GoTest()
     {
+        ResetButtons();
         MainUi.SetActive(false);
         OptionsUi.SetActive(false);
         SelectionUi.SetActive(false);

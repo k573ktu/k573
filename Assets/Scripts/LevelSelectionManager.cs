@@ -13,7 +13,6 @@ public class LevelSelectionManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI descriptionText;
 
-    [SerializeField] Color selectedButtonColor;
     [SerializeField] Color unselectedButtonColor;
 
     [SerializeField] GameObject displayObjects;
@@ -33,7 +32,9 @@ public class LevelSelectionManager : MonoBehaviour
     public void unselectCurrentSelected()
     {
         if (selectedLevelData == null) return;
-        selectedLevelData.gameObject.GetComponent<Image>().color = unselectedButtonColor;
+        var ncolor = selectedLevelData.gameObject.GetComponent<Button>().colors;
+        ncolor.normalColor = unselectedButtonColor;
+        selectedLevelData.gameObject.GetComponent<Button>().colors = ncolor;
         SceneManager.UnloadSceneAsync(selectedLevelData.LevelSceneName);
         InfoBackground.SetActive(false);
         selectedLevelData = null;
@@ -51,7 +52,9 @@ public class LevelSelectionManager : MonoBehaviour
             unselectCurrentSelected();
             displayObjects.SetActive(false);
             SceneManager.LoadScene(levelData.LevelSceneName, LoadSceneMode.Additive);
-            levelData.gameObject.GetComponent<Image>().color = selectedButtonColor;
+            var ncolor = levelData.gameObject.GetComponent<Button>().colors;
+            ncolor.normalColor = ncolor.highlightedColor;
+            levelData.gameObject.GetComponent<Button>().colors = ncolor;
             nameText.text = levelData.LevelName;
             descriptionText.text = levelData.LevelDescription;
             InfoBackground.SetActive(true);
