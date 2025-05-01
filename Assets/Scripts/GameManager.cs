@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         
         PauseSimulationButton.GetComponent<Button>().interactable = false;
-        PrimaryPauseColor = PauseSimulationButton.color;
+        PrimaryPauseColor = PauseSimulationButton.GetComponent<Button>().colors.normalColor;
         inPauseMeniu = false;
         goingToMain = false;
         Time.timeScale = 1;
@@ -222,14 +222,18 @@ public class GameManager : MonoBehaviour
     void PauseSimulation()
     {
         Time.timeScale = 0;
-        PauseSimulationButton.color = SelectedPauseColor;
+        var col = PauseSimulationButton.GetComponent<Button>().colors;
+        col.normalColor = SelectedPauseColor;
+        PauseSimulationButton.GetComponent<Button>().colors = col;
         paused = true;
     }
 
     void UnpauseSimulation()
     {
         Time.timeScale = 1;
-        PauseSimulationButton.color = PrimaryPauseColor;
+        var col = PauseSimulationButton.GetComponent<Button>().colors;
+        col.normalColor = PrimaryPauseColor;
+        PauseSimulationButton.GetComponent<Button>().colors = col;
         paused = false;
     }
 
