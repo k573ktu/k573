@@ -12,6 +12,8 @@ public class DarkTransition : MonoBehaviour
     private void Awake()
     {
         if (inst == null) inst = this;
+        darknessObject.color = new Color(darknessObject.color.r, darknessObject.color.g, darknessObject.color.b, 1);
+        darknessObject.gameObject.SetActive(true);
     }
 
     public void BlackDisappear(Action onDone = null, bool useTimeScale = true)
