@@ -342,6 +342,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &68560442
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +888,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &114985467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,6 +4649,7 @@ GameObject:
   - component: {fileID: 750425344}
   - component: {fileID: 750425343}
   - component: {fileID: 750425345}
+  - component: {fileID: 750425346}
   m_Layer: 5
   m_Name: Managers
   m_TagString: Untagged
@@ -4704,6 +4713,43 @@ MonoBehaviour:
   nextButton: {fileID: 2025389705}
   prevButton: {fileID: 1258755316}
   finishButton: {fileID: 1624872398}
+--- !u!114 &750425346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750425342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea5c8f3a04d14e4d96e974ee115d0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: 5965e0362343c9b44846a53280975198, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomness: 0
+    loop: 0
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 520dca89cb7cb2c4898e2bf158f1287c, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomness: 0
+    loop: 0
+    onlyPlaysOneShots: 1
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
+  playOnAwake: 0
+  whenStoppedChangeToNext: 0
+  songs:
+  - name: 
+    clip: {fileID: 0}
+    volume: 1
 --- !u!1 &756613006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5111,6 +5157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &792210616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,6 +5465,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &885381936
 GameObject:
   m_ObjectHideFlags: 0
@@ -5545,6 +5599,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!114 &887890733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6929,6 +6987,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1260053765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,6 +7265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1314460044
 GameObject:
   m_ObjectHideFlags: 0
@@ -7393,6 +7459,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1319146271
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,6 +8887,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1624872396
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,6 +9038,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1670534213
 GameObject:
   m_ObjectHideFlags: 0
@@ -10784,13 +10862,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 269897629}
+      - m_Target: {fileID: 750425342}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: GoSelection
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10847,6 +10925,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &1931833435
 GameObject:
   m_ObjectHideFlags: 0
@@ -11120,6 +11202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1 &2035711484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11804,6 +11890,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverMultiplyer: 1.1
+  hoverSoundName: ButtonHover
+  clickSoundName: ButtonClick
+  hoverVolume: 1
+  clickVolume: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
