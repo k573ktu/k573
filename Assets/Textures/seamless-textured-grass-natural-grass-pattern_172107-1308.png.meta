@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c9cdf48f1c81fa4091449cac074d9ff
+guid: e37dfd9381793b34c8bfcfdd90e369b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1661917522054217500
-    second: tire back_0
+      213: 5270631151816270335
+    second: seamless-textured-grass-natural-grass-pattern_172107-1308_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 313
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tire back_0
+      name: seamless-textured-grass-natural-grass-pattern_172107-1308_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 371
-        height: 371
+        width: 626
+        height: 626
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e006f3a1deafe8e0800000000000000
-      internalID: -1661917522054217500
+      spriteID: ff1ed1a8b1b052940800000000000000
+      internalID: 5270631151816270335
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tire back_0: -1661917522054217500
+      seamless-textured-grass-natural-grass-pattern_172107-1308_0: 5270631151816270335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

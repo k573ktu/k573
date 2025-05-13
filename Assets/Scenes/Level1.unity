@@ -749,8 +749,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4943396, g: 0.21386322, b: 0, a: 1}
+  m_Sprite: {fileID: 7499154508442906066, guid: 21b33ed7cc55a124ea3aac7ae867f2b4, type: 3}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -881,9 +881,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1453533028}
   - {fileID: 101510033}
   - {fileID: 249265875}
-  - {fileID: 1453533028}
   m_Father: {fileID: 407578562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -952,9 +952,21 @@ MonoBehaviour:
     mass: 10
     vehiclePrefab: {fileID: 2794294473363362354, guid: ecacd9b5e8a72be46aad269c55c14db6, type: 3}
     vehiclePosition: {x: -0.78, y: -0.35}
+  - name: Mopedas
+    mass: 100
+    vehiclePrefab: {fileID: 2794294473363362354, guid: 2c132217cd44fe44f9574bafcd310a19, type: 3}
+    vehiclePosition: {x: -0.78, y: -0.35}
   - name: Automobilis
     mass: 1000
     vehiclePrefab: {fileID: 2884600749861223404, guid: bb47f6e3b2b284540976d834cce9dee5, type: 3}
+    vehiclePosition: {x: -0.08, y: -0.462}
+  - name: Autobusiukas
+    mass: 3500
+    vehiclePrefab: {fileID: 2884600749861223404, guid: 19a0694ccaf39c746af5a57dca010572, type: 3}
+    vehiclePosition: {x: -0.08, y: -0.462}
+  - name: "Siunkve\u017Eimis"
+    mass: 5000
+    vehiclePrefab: {fileID: 2884600749861223404, guid: 044321a7a96deb7429169756b4988cf4, type: 3}
     vehiclePosition: {x: -0.08, y: -0.462}
 --- !u!1 &224088911
 GameObject:
@@ -1144,17 +1156,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.61795044, y: 0.018716335}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 104.45, y: 2.6}
+    adaptiveTilingThreshold: 0.165
+    drawMode: 2
+    adaptiveTiling: 1
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 103.36842, y: 2.534768}
   m_EdgeRadius: 0
 --- !u!212 &243061501
 SpriteRenderer:
@@ -1200,14 +1212,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13333334, g: 0.3882353, b: 0.015686275, a: 1}
+  m_Sprite: {fileID: 5270631151816270335, guid: e37dfd9381793b34c8bfcfdd90e369b0, type: 3}
+  m_Color: {r: 0.33459416, g: 0.6886792, b: 0.3558764, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
+  m_DrawMode: 2
+  m_Size: {x: 104.45, y: 2.6}
+  m_AdaptiveModeThreshold: 0.165
+  m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
@@ -1220,8 +1232,8 @@ Transform:
   m_GameObject: {fileID: 243061499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5162, y: -11.7071, z: 0}
-  m_LocalScale: {x: 111.05405, y: 6.557785, z: 1}
+  m_LocalPosition: {x: 1.27, y: -9.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1310,7 +1322,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1088618742}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 4
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -3895,8 +3907,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4943396, g: 0.21386322, b: 0, a: 1}
+  m_Sprite: {fileID: 7499154508442906066, guid: 21b33ed7cc55a124ea3aac7ae867f2b4, type: 3}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4270,9 +4282,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 135634890}
   - {fileID: 40948652}
   - {fileID: 2116738043}
-  - {fileID: 135634890}
   m_Father: {fileID: 407578562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

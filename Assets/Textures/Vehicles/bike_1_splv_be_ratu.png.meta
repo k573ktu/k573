@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: df25a62d1ff811f49a62f2f2f50340dc
+guid: ac6f9981ecce78f4cb835bc733f7b1d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3361933791039264791
-    second: mustang model_0
+      213: 8201612713493937922
+    second: bike_1_splv_be_ratu_0
+  - first:
+      213: -7603479421708133866
+    second: bike_1_splv_be_ratu_1
+  - first:
+      213: 3922854948571897263
+    second: bike_1_splv_be_ratu_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,7 +103,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mustang model_0
+      name: bike_1_splv_be_ratu_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3024
-        height: 1664
+        x: 155
+        y: 528
+        width: 1751
+        height: 1075
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 718174d78fcf7ae20800000000000000
-      internalID: 3361933791039264791
+      spriteID: 20f32251f4bf1d170800000000000000
+      internalID: 8201612713493937922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bike_1_splv_be_ratu_1
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 526
+        width: 55
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a181c30c30b7690800000000000000
+      internalID: -7603479421708133866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bike_1_splv_be_ratu_2
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 450
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadd203aac7c07630800000000000000
+      internalID: 3922854948571897263
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mustang model_0: 3361933791039264791
+      bike_1_splv_be_ratu_0: 8201612713493937922
+      bike_1_splv_be_ratu_1: -7603479421708133866
+      bike_1_splv_be_ratu_2: 3922854948571897263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

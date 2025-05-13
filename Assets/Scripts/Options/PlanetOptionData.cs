@@ -10,11 +10,15 @@ public struct PlanetData
     public float radius;
     public float mass;
     public Sprite planetSprite;
+    public bool blackHole;
 }
 
 public class PlanetOptionData : OptionData
 {
     [SerializeField] List<PlanetData> SpaceObjects;
+
+    [SerializeField] Material BlackHoleMaterial;
+    Material PlanetMaterial;
 
     [SerializeField] Image planetImageUi;
 
@@ -32,6 +36,8 @@ public class PlanetOptionData : OptionData
     {
         base.Start();
         currObject = 0;
+        
+        PlanetMaterial = new Material(Shader.Find("Sprites/Default"));
 
         FreePlanets = new Stack<GameObject>();
 
@@ -49,10 +55,20 @@ public class PlanetOptionData : OptionData
     {
         if (picked != null)
         {
+            planetImageUi.color = Color.white;
             planetImageUi.sprite = thrashSprite;
         }
         else
         {
+            if (SpaceObjects[currObject].blackHole)
+            {
+                planetImageUi.color = Color.black;
+            }
+            else
+            {
+                planetImageUi.color = Color.white;
+            }
+
             planetImageUi.sprite = SpaceObjects[currObject].planetSprite;
         }
         text.text = SpaceObjects[currObject].name;
@@ -80,7 +96,21 @@ public class PlanetOptionData : OptionData
 
         picked.GetComponent<SpriteRenderer>().sprite = SpaceObjects[currObject].planetSprite;
 
-        picked.GetComponent<ShadowCaster2D>().Update();
+        if (SpaceObjects[currObject].blackHole)
+        {
+            picked.GetComponent<SpriteRenderer>().color = Color.black;
+
+            picked.GetComponent<SpriteRenderer>().material = BlackHoleMaterial;
+            picked.GetComponent<ShadowCaster2D>().enabled = false;
+        }
+        else
+        {
+            picked.GetComponent<SpriteRenderer>().color = Color.white;
+
+            picked.GetComponent<SpriteRenderer>().material = PlanetMaterial;
+            picked.GetComponent<ShadowCaster2D>().enabled = true;
+            picked.GetComponent<ShadowCaster2D>().Update();
+        }
 
         picked.SetActive(true);
     }

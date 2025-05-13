@@ -1225,38 +1225,53 @@ MonoBehaviour:
     radius: 1
     mass: 0
     planetSprite: {fileID: 21300000, guid: 05718305d278f7b4e987120741cfdd89, type: 3}
+    blackHole: 0
   - name: Merkurijus
     radius: 0.609875
     mass: 3300
     planetSprite: {fileID: 21300000, guid: 44de2dc113814b34599793cefc98ddc8, type: 3}
+    blackHole: 0
   - name: Venera
     radius: 1.513
     mass: 48700
     planetSprite: {fileID: 21300000, guid: 1d472021a1756474d8baa3e17366a448, type: 3}
+    blackHole: 0
   - name: Marsas
     radius: 0.849
     mass: 730
     planetSprite: {fileID: 21300000, guid: efd82f0ad0d4dbe4fa8189f1abd673c0, type: 3}
+    blackHole: 0
   - name: "\u017Dem\u0117"
     radius: 1.5945
     mass: 59700
     planetSprite: {fileID: 21300000, guid: 29a4a33745c70b74886f19bde8da3fb6, type: 3}
+    blackHole: 0
   - name: Jupiteris
     radius: 17.873
     mass: 18980000
     planetSprite: {fileID: 21300000, guid: 5bb893e16a127d34283acee6286cdb0b, type: 3}
+    blackHole: 0
   - name: Saturnas
     radius: 15.067
     mass: 5680000
     planetSprite: {fileID: 21300000, guid: d3e7293a3df5d67439c775333c174ae5, type: 3}
+    blackHole: 0
   - name: Uranas
     radius: 6.38975
     mass: 868000
     planetSprite: {fileID: 21300000, guid: cd702ec24b8eae544ae513c71226b7eb, type: 3}
+    blackHole: 0
   - name: "Nept\u016Bnas"
     radius: 6.191
     mass: 1020000
     planetSprite: {fileID: 21300000, guid: 7ed8232deafdba744978e852d2be3ecf, type: 3}
+    blackHole: 0
+  - name: "Juodoji Skyl\u0117"
+    radius: 1
+    mass: 1.898e+9
+    planetSprite: {fileID: -2413806693520163455, guid: 9950514e3e0b79241bd40582672d258d, type: 3}
+    blackHole: 1
+  BlackHoleMaterial: {fileID: 2100000, guid: 7a0e1a66dd4e05042a59a51b49545605, type: 2}
   planetImageUi: {fileID: 1322017703}
   planetObjects:
   - {fileID: 1630809833}
@@ -2378,9 +2393,10 @@ GameObject:
   - component: {fileID: 533296125}
   - component: {fileID: 533296124}
   - component: {fileID: 533296130}
+  - component: {fileID: 533296131}
   m_Layer: 7
   m_Name: Circle2
-  m_TagString: Movable
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2566,7 +2582,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2705,6 +2721,18 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &533296131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533296123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ca784620b2eef479f002152409230a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &540742837
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,9 +6900,10 @@ GameObject:
   - component: {fileID: 1630809839}
   - component: {fileID: 1630809838}
   - component: {fileID: 1630809840}
+  - component: {fileID: 1630809841}
   m_Layer: 7
   m_Name: Circle1
-  m_TagString: Movable
+  m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6936,7 +6965,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7199,6 +7228,18 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &1630809841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630809833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ca784620b2eef479f002152409230a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1668259130
 GameObject:
   m_ObjectHideFlags: 0

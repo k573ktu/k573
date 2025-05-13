@@ -38,7 +38,7 @@ public class CarMovement : MonoBehaviour
         {
             if (!hit)
             {
-                rigid.linearVelocity = currSpeed;
+                rigid.linearVelocity = new Vector2(currSpeed.x, rigid.linearVelocity.y);
             }
             else
             {

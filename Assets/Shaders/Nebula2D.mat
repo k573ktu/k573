@@ -57,7 +57,7 @@ Material:
     - _ParallaxFactor: 0.1
     - _PulseSpeed: 1
     - _Speed: -0.01
-    - _Threshold1: 0.068
+    - _Threshold1: 0.1
     - _Threshold2: 0.125
     - _WarpSpeed: 80
     - _ZWrite: 0
