@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,10 +31,10 @@ public class StudentListPopulator : MonoBehaviour
     {
         GameObject headerRow = CreateRow();
         AddTextCell(headerRow.transform, "Vardas", headerColor);
-        AddTextCell(headerRow.transform, "Pavardë", headerColor);
-        AddTextCell(headerRow.transform, "Klasë", headerColor);
-        AddTextCell(headerRow.transform, "Jëgos (%)", headerColor);
-        AddTextCell(headerRow.transform, "Dangaus kûnai (%)", headerColor);
+        AddTextCell(headerRow.transform, "PavardÄ—", headerColor);
+        AddTextCell(headerRow.transform, "KlasÄ—", headerColor);
+        AddTextCell(headerRow.transform, "JÄ—gos (%)", headerColor);
+        AddTextCell(headerRow.transform, "Dangaus kÅ«nai (%)", headerColor);
     }
 
     private async void FetchStudentsFromDatabase()
@@ -75,11 +75,11 @@ public class StudentListPopulator : MonoBehaviour
             AddTextCell(studentRow.transform, surname, textColor);
             AddTextCell(studentRow.transform, className, textColor);
 
-            // Add Jëgos with color
+            // Add JÃ«gos with color
             Color jegosColor = GetScoreColor(stats.jegos);
             AddTextCell(studentRow.transform, $"{stats.jegos}%", jegosColor);
 
-            // Add Dangaus kûnai with color
+            // Add Dangaus kÃ»nai with color
             Color dangusColor = GetScoreColor(stats.dangus);
             AddTextCell(studentRow.transform, $"{stats.dangus}%", dangusColor);
         }
