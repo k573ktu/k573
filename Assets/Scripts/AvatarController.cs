@@ -33,9 +33,12 @@ public class AvatarController : MonoBehaviour
 
     float currTime, timeUntilNext;
 
+    static HashSet<string> oneTime;
+
     private void Awake()
     {
         if (inst == null) inst = this;
+        if(oneTime == null) oneTime = new HashSet<string>();
     }
 
     private void Start()
@@ -55,9 +58,10 @@ public class AvatarController : MonoBehaviour
         }
     }
 
-    void HideText()
+    public void HideText()
     {
         showing = false;
+        inAnimation = false;
         dialogObject.SetActive(false);
         avatarImage.DOKill();
         avatarImage.DOAnchorPosY(avatarHiddenYPosition, 0.7f).SetEase(Ease.InOutCubic).SetDelay(0.6f);
@@ -106,6 +110,15 @@ public class AvatarController : MonoBehaviour
         UpdateText();
     }
 
+    public void ShowTextOneTime(string text, string code)
+    {
+        if (oneTime.Contains(code)) return;
+        oneTime.Add(code);
+        textQueue.Enqueue(text);
+
+        UpdateText();
+    }
+
     public void DialogPressed()
     {
         if (inAnimation)
@@ -120,11 +133,11 @@ public class AvatarController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            skip = true;
-            HideText();
-        }
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    skip = true;
+        //    HideText();
+        //}
 
         if (inAnimation)
         {

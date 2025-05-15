@@ -1,4 +1,4 @@
-using NUnit.Framework.Internal;
+﻿using NUnit.Framework.Internal;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // Needed for scene loading
@@ -49,6 +49,7 @@ public class UiManager : MonoBehaviour
         OptionsUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(false);
+        AvatarController.inst.HideText();
     }
 
     public void GoSelection()
@@ -59,6 +60,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(true);
         TheoryUi.SetActive(false);
         TestUi.SetActive(false);
+        AvatarController.inst.ShowTextOneTime("Labas! Mano vardas Photonas ir esu čia tam, kad padėčiau Tau dar geriau susipažinti su fizika bei jos subtilybėmis! Šios simuliacijos metu galėsi susipažinti su įvairiais fizikos dėsniais, pritaikydamas juos realaus gyvenimo pavyzdžiuose. Sėkmės!", "selection");
     }
 
     public void GoOptions()
@@ -79,6 +81,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(true);
         TestUi.SetActive(false);
+        AvatarController.inst.ShowTextOneTime("Štai čia gali dar geriau pagilinti savo žinias su teorine medžiaga iš fizikos vadovėlių. Pasirink temą ir tapk tikru fizikos žinovu!", "theory");
     }
     public void GoTest()
     {
@@ -88,6 +91,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(true);
+        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testukų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
     }
 
     private void Update()
