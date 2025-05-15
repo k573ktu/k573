@@ -28,7 +28,7 @@ public class MovementManager : MonoBehaviour
         if (!borderless)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(Vector2.zero, MaxCameraBorders);
+            Gizmos.DrawWireCube(transform.position, MaxCameraBorders);
         }
     }
 
