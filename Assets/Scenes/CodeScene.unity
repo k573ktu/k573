@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Slapta\u017Eodis..."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5e9e88c9986a7647a9c885a8730e61d, type: 2}
   m_sharedMaterial: {fileID: 7298267821504332133, guid: c5e9e88c9986a7647a9c885a8730e61d, type: 2}
@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jungtis
+  m_text: Prisijungti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c688a7b0b8fbaee4db647751eaa3c9bd, type: 2}
   m_sharedMaterial: {fileID: 2393684159907246699, guid: c688a7b0b8fbaee4db647751eaa3c9bd, type: 2}
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 49.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2403,7 +2403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prisijungimo Kodas
+  m_text: Naudotojo vardas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57d1ea530cd11934097fe93045cc59fa, type: 2}
   m_sharedMaterial: {fileID: 2393684159907246699, guid: 57d1ea530cd11934097fe93045cc59fa, type: 2}
@@ -2893,9 +2893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4bb4b2da460604b82190f17ff5646a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  errorText: {fileID: 1911009606}
   username: {fileID: 1646536145}
   password: {fileID: 1152443314}
+  errorText: {fileID: 1911009606}
 --- !u!1 &1911009604
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,7 +3162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kodas...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5e9e88c9986a7647a9c885a8730e61d, type: 2}
   m_sharedMaterial: {fileID: 7298267821504332133, guid: c5e9e88c9986a7647a9c885a8730e61d, type: 2}

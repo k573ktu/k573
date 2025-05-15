@@ -1,15 +1,18 @@
-using NUnit.Framework.Internal;
+﻿using Mono.Cecil.Cil;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Needed for scene loading
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] GameObject MainUi;
-    [SerializeField] GameObject SelectionUi;
-    [SerializeField] GameObject OptionsUi;
-    [SerializeField] GameObject TheoryUi;
-    [SerializeField] GameObject TestUi;
+    [SerializeField] private GameObject MainUi;
+    [SerializeField] private GameObject SelectionUi;
+    [SerializeField] private GameObject OptionsUi;
+    [SerializeField] private GameObject TheoryUi;
+    [SerializeField] private GameObject TestUi;
+    [SerializeField] private GameObject TeacherPanel;
+    [SerializeField] private Button TeacherButton; // Corrected, no duplicate
 
     public static UiManager inst;
 
@@ -25,7 +28,50 @@ public class UiManager : MonoBehaviour
     {
         GoMain();
         Time.timeScale = 1;
+
+        // Retrieve the UserType and UserCode from PlayerPrefs
+        string userType = PlayerPrefs.GetString("UserType", "unknown");
+        string userCode = PlayerPrefs.GetString("UserCode", "unknown");
+        Debug.Log($"User Type Retrieved: {userType}");
+        Debug.Log($"User Code Retrieved: {userCode}");
+
+        // Show the TeacherButton only for teachers
+        if (TeacherButton != null)
+        {
+            if (userType == "teacher")
+            {
+                TeacherButton.gameObject.SetActive(true);
+                TeacherButton.onClick.AddListener(() =>
+                {
+                    GoTeacherPanel();
+
+                    // Check if the UserCode is still "unknown"
+                    if (userCode == "unknown")
+                    {
+                        // Attempt to get the correct UserCode from PlayerPrefs
+                        userCode = PlayerPrefs.GetString("UserCode", "unknown");
+
+                        // If it is still unknown, log a warning
+                        if (userCode == "unknown")
+                        {
+                            Debug.LogError("No user code found in PlayerPrefs.");
+                            return;
+                        }
+
+                        // Save the UserCode for future use
+                        PlayerPrefs.SetString("UserCode", userCode);
+                        PlayerPrefs.Save();
+                        Debug.Log($"User Code Saved: {userCode}");
+                    }
+                });
+            }
+            else
+            {
+                TeacherButton.gameObject.SetActive(false);
+            }
+        }
     }
+
 
     public void AssignMainButton(MainButtonSelected code)
     {
@@ -49,6 +95,8 @@ public class UiManager : MonoBehaviour
         OptionsUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(false);
+        TeacherPanel.SetActive(false);
+        AvatarController.inst.HideText();
     }
 
     public void GoSelection()
@@ -59,6 +107,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(true);
         TheoryUi.SetActive(false);
         TestUi.SetActive(false);
+        AvatarController.inst.ShowTextOneTime("Labas! Mano vardas Photonas ir esu čia tam, kad padėčiau Tau dar geriau susipažinti su fizika bei jos subtilybėmis! Šios simuliacijos metu galėsi susipažinti su įvairiais fizikos dėsniais, pritaikydamas juos realaus gyvenimo pavyzdžiuose. Sėkmės!", "selection");
     }
 
     public void GoOptions()
@@ -79,6 +128,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(true);
         TestUi.SetActive(false);
+        AvatarController.inst.ShowTextOneTime("Štai čia gali dar geriau pagilinti savo žinias su teorine medžiaga iš fizikos vadovėlių. Pasirink temą ir tapk tikru fizikos žinovu!", "theory");
     }
     public void GoTest()
     {
@@ -88,8 +138,18 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(true);
+        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testukų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
     }
-
+    public void GoTeacherPanel()
+    {
+        ResetButtons();
+        MainUi.SetActive(false);
+        SelectionUi.SetActive(false);
+        OptionsUi.SetActive(false);
+        TheoryUi.SetActive(false);
+        TestUi.SetActive(false);
+        TeacherPanel.SetActive(true);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
