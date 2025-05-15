@@ -1,4 +1,4 @@
-using Firebase.Firestore;
+ï»¿using Firebase.Firestore;
 using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
@@ -29,7 +29,7 @@ public class LoginManager : MonoBehaviour
 
         if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(pwd))
         {
-            ShowError("Praðome ávesti kodà ir slaptaþodá.");
+            ShowError("PraÅ¡ome Ä¯vesti kodÄ… ir slaptaÅ¾odÄ¯.");
             return;
         }
 
@@ -44,7 +44,7 @@ public class LoginManager : MonoBehaviour
             {
                 if (task.IsFaulted || task.IsCanceled)
                 {
-                    ShowError("Serverio klaida, bandykite vëliau");
+                    ShowError("Serverio klaida, bandykite vÄ—liau");
                     Debug.LogError("Error getting documents: " + task.Exception);
                     return;
                 }
@@ -68,7 +68,7 @@ public class LoginManager : MonoBehaviour
                 }
                 else
                 {
-                    ShowError("Neteisingas prisijungimo kodas arba slaptaþodis");
+                    ShowError("Neteisingas prisijungimo kodas arba slaptaÅ¾odis");
                 }
             });
     }
