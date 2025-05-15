@@ -92,7 +92,7 @@ public class UiManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
         {
             if(!TheoryUi.activeSelf && !TestUi.activeSelf && !MainUi.activeSelf)
             {
