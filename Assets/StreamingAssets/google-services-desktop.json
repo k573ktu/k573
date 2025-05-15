@@ -1,0 +1,32 @@
+{
+    "project_info": {
+      "project_id": "fizikon-3e447",
+      "project_number": "899140351328",
+      "name": "fizikon",
+      "firebase_url": "https://fizikon-3e447.firebaseio.com",
+      "storage_bucket": "fizikon-3e447.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:899140351328:web:5ff3d279b0c22d061eda05",
+          "android_client_info": {
+            "package_name": "com.yourcompany.yourapp"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyBY5viSrxrkVDkUdZajtaWr571OmlUzcOo"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
+  
