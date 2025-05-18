@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
-using Firebase.Firestore;
-using Firebase.Extensions;
+//using Firebase.Firestore;
+//using Firebase.Extensions;
 
 public class TeacherPanelManager : MonoBehaviour
 {
+}
+    /*
     [SerializeField] private TextMeshProUGUI teacherInfoText;
 
     private FirebaseFirestore db;
@@ -61,3 +63,4 @@ public class TeacherPanelManager : MonoBehaviour
             });
     }
 }
+    */

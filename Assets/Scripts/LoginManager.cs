@@ -1,11 +1,11 @@
-﻿using Firebase.Firestore;
-using Firebase.Extensions;
+﻿//using Firebase.Firestore;
+//using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
-{
+{ }/*
     [SerializeField] private TMP_InputField username;
     [SerializeField] private TMP_InputField password;
     [SerializeField] private TextMeshProUGUI errorText;
@@ -102,3 +102,4 @@ public class LoginManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 }
+*/

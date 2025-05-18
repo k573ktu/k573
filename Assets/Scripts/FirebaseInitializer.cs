@@ -1,9 +1,10 @@
-using Firebase;
-using Firebase.Extensions;
+//using Firebase;
+//using Firebase.Extensions;
 using UnityEngine;
 
 public class FirebaseInitializer : MonoBehaviour
-{
+{ }
+    /*
     void Start()
     {
         Debug.Log("Attempting to initialize Firebase...");
@@ -25,3 +26,4 @@ public class FirebaseInitializer : MonoBehaviour
         });
     }
 }
+    */

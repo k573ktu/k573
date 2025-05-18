@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using Firebase.Firestore;
+//using Firebase.Firestore;
 using System.Linq;
 
 public class StudentListPopulator : MonoBehaviour
-{
+{ }/*
     public Transform contentParent;
     public Font textFont;
     public int fontSize = 18;
@@ -141,3 +141,4 @@ public class StudentListPopulator : MonoBehaviour
         rectTransform.anchoredPosition = Vector2.zero;
     }
 }
+    */

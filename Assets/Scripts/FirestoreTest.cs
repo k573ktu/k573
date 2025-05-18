@@ -1,9 +1,9 @@
-using Firebase.Firestore;
-using Firebase.Extensions;
+//using Firebase.Firestore;
+//using Firebase.Extensions;
 using UnityEngine;
 
 public class FirestoreTest : MonoBehaviour
-{
+{ }/*
     void Start()
     {
         Debug.Log("Attempting to connect to Firestore...");
@@ -25,3 +25,4 @@ public class FirestoreTest : MonoBehaviour
         });
     }
 }
+*/
