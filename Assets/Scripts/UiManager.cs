@@ -150,15 +150,19 @@ public class UiManager : MonoBehaviour
         TestUi.SetActive(false);
         TeacherPanel.SetActive(true);
     }
+    public void BackPressed()
+    {
+        if (!TheoryUi.activeSelf && !TestUi.activeSelf && !MainUi.activeSelf)
+        {
+            GetComponent<LevelSelectionManager>().unselectCurrentSelected();
+            GoMain();
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!TheoryUi.activeSelf && !TestUi.activeSelf && !MainUi.activeSelf)
-            {
-                GetComponent<LevelSelectionManager>().unselectCurrentSelected();
-                GoMain();
-            }
+            BackPressed();
         }
     }
 }

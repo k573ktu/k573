@@ -6,6 +6,8 @@ using System.Text;
 
 public class AvatarController : MonoBehaviour
 {
+    [SerializeField] GameObject avatar;
+
     [SerializeField] RectTransform avatarImage;
 
     [SerializeField] float avatarHiddenYPosition;
@@ -48,6 +50,7 @@ public class AvatarController : MonoBehaviour
         skip = false;
         showing = false;
         inAnimation = false;
+        avatar.SetActive(true);
         avatarCurrYPosition = avatarImage.anchoredPosition.y;
         avatarImage.anchoredPosition = new Vector2(avatarImage.anchoredPosition.x, avatarHiddenYPosition);
         dialogObject.SetActive(false);
