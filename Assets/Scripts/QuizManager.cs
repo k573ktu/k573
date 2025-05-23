@@ -4,7 +4,6 @@ using TMPro;
 using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
 public class QuizManager : MonoBehaviour
 {
@@ -37,171 +36,6 @@ public class QuizManager : MonoBehaviour
 
     private QuizQuestion[] generatedQuestions;
 
-    // Firebasing
-    private const string LOCAL_RESULTS_KEY = "PendingQuizResults";
-    private List<QuizResult> pendingResults = new List<QuizResult>();
-    private bool isOnline = false;
-    [System.Serializable]
-    public class QuizResult
-    {
-        public string quizName;
-        public int score;
-        public int totalQuestions;
-        public float accuracy;
-        public string timestamp;
-        public Dictionary<string, double> variablesUsed;
-        public List<QuestionResponse> responses;
-        public string ToJson()
-        {
-            return JsonUtility.ToJson(this);
-        }
-    }
-    [System.Serializable]
-    public class QuestionResponse
-    {
-        public string questionText;
-        public string[] answerOptions;
-        public int selectedAnswer;
-        public int correctAnswer;
-    }
-    public void FinishQuiz()
-    {
-        if (quizFinished) return;
-        quizFinished = true;
-        ShowResults();
-        // Create and save the quiz result
-        SaveQuizResult();
-    }
-    private void SaveQuizResult()
-    {
-        QuizResult result = new QuizResult
-        {
-            quizName = quizJsonFile.name,
-            timestamp = DateTime.UtcNow.ToString("o"),
-            responses = new List<QuestionResponse>(),
-            variablesUsed = new Dictionary<string, double>()
-        };
-
-        int correctAnswers = 0;
-
-        for (int i = 0; i < quizData.questions.Length; i++)
-        {
-            var question = generatedQuestions[i];
-            int selected = selectedAnswers[i];
-            // Track correct answers
-            if (selected == question.correctIndex)
-            {
-                correctAnswers++;
-            }
-            // Save each question response
-            result.responses.Add(new QuestionResponse
-            {
-                questionText = question.question,
-                answerOptions = question.answers,
-                selectedAnswer = selected,
-                correctAnswer = question.correctIndex
-            });
-        }
-
-        result.score = correctAnswers;
-        result.totalQuestions = quizData.questions.Length;
-        result.accuracy = (float)correctAnswers / quizData.questions.Length;
-
-        // Save variables for dynamic questions (if any)
-        // would need to track these during question generation
-        pendingResults.Add(result);
-        SavePendingResults();
-        // Try to send results
-        if (isOnline)
-        {
-            SendResultsToFirebase(result);
-        }
-    }
-
-    private void SavePendingResults()
-    {
-        string json = JsonUtility.ToJson(new QuizResultList(pendingResults));
-        PlayerPrefs.SetString(LOCAL_RESULTS_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadPendingResults()
-    {
-        if (PlayerPrefs.HasKey(LOCAL_RESULTS_KEY))
-        {
-            string json = PlayerPrefs.GetString(LOCAL_RESULTS_KEY);
-            var resultList = JsonUtility.FromJson<QuizResultList>(json);
-            pendingResults = resultList.results ?? new List<QuizResult>();
-        }
-    }
-
-    private void CheckOnlineStatus()
-    {
-        // Simple check, might need something more later
-        isOnline = Application.internetReachability != NetworkReachability.NotReachable;
-    }
-
-    private void SendResultsToFirebase(QuizResult result)
-    {
-        try
-        {
-            string resultJson = result.ToJson();
-
-            // Call javascript firebase function
-#if UNITY_WEBGL && !UNITY_EDITOR
-            SendQuizResultToFirebase(resultJson);
-#else
-            Debug.Log("[Firebase] Would send to Firebase: " + resultJson);
-#endif
-            pendingResults.Remove(result);
-            SavePendingResults();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Failed to send result to Firebase: " + e.Message);
-        }
-    }
-
-    // function will be called from javascript
-    private void OnFirebaseResultSent(bool success)
-    {
-        if (success)
-        {
-            Debug.Log("Result successfully sent to Firebase");
-        }
-        else
-        {
-            Debug.LogWarning("Failed to send result to Firebase");
-        }
-    }
-
-    // WebGL interop functions
-    [System.Serializable]
-    private class QuizResultList
-    {
-        public List<QuizResult> results;
-
-        public QuizResultList(List<QuizResult> results)
-        {
-            this.results = results;
-        }
-    }
-
-#if UNITY_WEBGL && !UNITY_EDITOR
-    [DllImport("__Internal")]
-    private static extern void SendQuizResultToFirebase(string resultJson);
-#else
-    private void SendQuizResultToFirebase(string resultJson)
-    {
-        Debug.Log("[WebGL] Would send to Firebase: " + resultJson);
-    }
-#endif
-    void Start()
-    {
-        LoadPendingResults();
-        CheckOnlineStatus();
-    }
-    // Firebasing end
     void UpdateNavigationButtons()
     {
         prevButton.interactable = currentQuestionIndex > 0;
@@ -464,7 +298,7 @@ public class QuizManager : MonoBehaviour
             UpdateNavigationButtons();
         }
     }
-    /*
+
     public void FinishQuiz()
     {
         if (quizFinished) return;
@@ -472,7 +306,7 @@ public class QuizManager : MonoBehaviour
         quizFinished = true;
         ShowResults();
     }
-    */
+
     [System.Serializable]
     public class QuizQuestion
     {
