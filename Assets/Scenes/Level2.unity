@@ -1102,9 +1102,9 @@ RectTransform:
   - {fileID: 116791376}
   m_Father: {fileID: 449046927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1840, y: -1000}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -80, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175180995
@@ -1266,11 +1266,6 @@ MonoBehaviour:
     mass: 1020000
     planetSprite: {fileID: 21300000, guid: 7ed8232deafdba744978e852d2be3ecf, type: 3}
     blackHole: 0
-  - name: "Juodoji Skyl\u0117"
-    radius: 1
-    mass: 1.898e+9
-    planetSprite: {fileID: -2413806693520163455, guid: 9950514e3e0b79241bd40582672d258d, type: 3}
-    blackHole: 1
   BlackHoleMaterial: {fileID: 2100000, guid: 7a0e1a66dd4e05042a59a51b49545605, type: 2}
   planetImageUi: {fileID: 1322017703}
   planetObjects:
@@ -2880,10 +2875,10 @@ RectTransform:
   - {fileID: 899785216}
   m_Father: {fileID: 449046927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -181.28003, y: -540}
-  m_SizeDelta: {x: 362.566, y: 1080}
+  m_AnchoredPosition: {x: -181.28003, y: 0}
+  m_SizeDelta: {x: 362.566, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655296190
 MonoBehaviour:
@@ -3058,7 +3053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000049591064, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: -23.9584, y: -23.9584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675936981

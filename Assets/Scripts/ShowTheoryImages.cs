@@ -45,9 +45,10 @@ public class ShowTheoryImages : MonoBehaviour
             i++;
         }
     }
-    void Update()
+
+    public void GoBack()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && mainUI.transform.parent.gameObject.activeSelf)
+        if (mainUI.transform.parent.gameObject.activeSelf)
         {
             if (theoryUI.activeSelf)
             {
@@ -55,10 +56,18 @@ public class ShowTheoryImages : MonoBehaviour
                 theoryUI.SetActive(false);
                 mainUI.SetActive(true);
             }
-            else if(mainUI.activeSelf)
+            else if (mainUI.activeSelf)
             {
                 UiManager.inst.GoMain();
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GoBack();
         }
     }
 

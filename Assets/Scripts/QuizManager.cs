@@ -252,9 +252,9 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void GoBack()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && titlePanel.transform.parent.gameObject.activeSelf)
+        if (titlePanel.transform.parent.gameObject.activeSelf)
         {
             if (isViewingResults)
             {
@@ -276,6 +276,14 @@ public class QuizManager : MonoBehaviour
                 ReturnToTitle();
                 UiManager.inst.GoMain();
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GoBack();
         }
     }
 
