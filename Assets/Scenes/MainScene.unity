@@ -693,8 +693,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 419484826}
-  - {fileID: 320020550}
   - {fileID: 802700086}
+  - {fileID: 320020550}
   m_Father: {fileID: 269897627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6032,16 +6032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad5d7b5d40f71438d7a0c690424b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentParent: {fileID: 763820202}
-  textFont: {fileID: 12800000, guid: ad864ce4a9c7fd342baf222a0426883d, type: 3}
-  fontSize: 30
-  textColor: {r: 0, g: 0, b: 0, a: 1}
-  headerColor: {r: 1, g: 1, b: 1, a: 1}
-  rowHeight: 20
-  columnWidth: 170
-  lowScoreColor: {r: 1, g: 0, b: 0, a: 1}
-  mediumScoreColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  highScoreColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &763839464
 GameObject:
   m_ObjectHideFlags: 0
@@ -7112,7 +7102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f82dad1f0e9ba4db50844d33ad7604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teacherInfoText: {fileID: 1473300348}
 --- !u!1 &942642055
 GameObject:
   m_ObjectHideFlags: 0
