@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -22,6 +23,8 @@ public class PlanetOptionData : OptionData
 
     [SerializeField] Image planetImageUi;
 
+    [SerializeField] TextMeshProUGUI CountText;
+
     int currObject;
 
     [SerializeField] List<GameObject> planetObjects;
@@ -31,6 +34,11 @@ public class PlanetOptionData : OptionData
     Stack<GameObject> FreePlanets;
 
     GameObject picked;
+    GameObject currSpot;
+
+    [SerializeField] List <GameObject> PlanetSpots;
+    List<GameObject> spotTaken;
+    [SerializeField] float distToSpot;
 
     protected override void Start()
     {
@@ -40,6 +48,14 @@ public class PlanetOptionData : OptionData
         PlanetMaterial = new Material(Shader.Find("Sprites/Default"));
 
         FreePlanets = new Stack<GameObject>();
+
+        spotTaken = new List<GameObject>();
+
+        foreach(var i in PlanetSpots)
+        {
+            spotTaken.Add(null);
+            i.SetActive(false);
+        }
 
         foreach(var obj in planetObjects)
         {
@@ -72,6 +88,7 @@ public class PlanetOptionData : OptionData
             planetImageUi.sprite = SpaceObjects[currObject].planetSprite;
         }
         text.text = SpaceObjects[currObject].name;
+        CountText.text = string.Format("Planetos: {0}/2",planetObjects.Count-FreePlanets.Count);
     }
 
     public void NextObject()
@@ -134,6 +151,13 @@ public class PlanetOptionData : OptionData
         {
             ShowCurrPlanet();
         }
+        for (int i = 0; i < PlanetSpots.Count; i++)
+        {
+            if (spotTaken[i] == null)
+            {
+                PlanetSpots[i].SetActive(true);
+            }
+        }
 
         updateCurrObject();
     }
@@ -142,6 +166,7 @@ public class PlanetOptionData : OptionData
     {
         if (picked != null) return;
         FreePlanets.Push(obj);
+        spotTaken[spotTaken.IndexOf(obj)]=null;
         PickObject(false);
     }
 
@@ -174,6 +199,18 @@ public class PlanetOptionData : OptionData
 
             bool goodToPlace = !MovementManager.inst.IsPointerOverUI();
 
+            var spot = Physics2D.OverlapCircle(mouse, distToSpot, LayerMask.GetMask("PlanetSpot"));
+
+            if (spot)
+            {
+                picked.transform.position = new Vector3(spot.gameObject.transform.position.x, spot.gameObject.transform.position.y, picked.transform.position.z);
+                currSpot = spot.gameObject;
+            }
+            else
+            {
+                goodToPlace = false;
+            }
+
             if (picked.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Movable")))
             {
                 goodToPlace = false;
@@ -194,7 +231,11 @@ public class PlanetOptionData : OptionData
                 if (goodToPlace)
                 {
                     picked.GetComponent<TrailRenderer>().enabled = true;
+                    
+                    int id = PlanetSpots.IndexOf(currSpot);
+                    spotTaken[id] = picked;
                     picked = null;
+                    currSpot = null;
                     updateCurrObject();
                 }
                 else
@@ -202,7 +243,12 @@ public class PlanetOptionData : OptionData
                     FreePlanets.Push(picked);
                     HideCurrPlanet();
                     picked = null;
+                    currSpot = null;
                     updateCurrObject();
+                }
+                for (int i = 0; i < PlanetSpots.Count; i++)
+                {
+                    PlanetSpots[i].SetActive(false);
                 }
             }
         }

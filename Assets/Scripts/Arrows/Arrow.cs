@@ -79,6 +79,10 @@ public class Arrow : MonoBehaviour
         if (GameManager.inst.displayScene) return;
         if (showAlways) show();
         UpdateArrowDirection();
+        if (!analyzedObject.activeSelf && arrowLine.enabled)
+        {
+            hide();
+        }
         endPoint = (Vector2)analyzedObject.transform.position + arrowDirection;
         UpdateDisplay();  
     }

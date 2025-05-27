@@ -8,6 +8,7 @@ TagManager:
   - main
   - Movable
   - planet
+  - sun
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - MovementIgnoredUI
   - Movable
-  - 
+  - PlanetSpot
   - 
   - 
   - 

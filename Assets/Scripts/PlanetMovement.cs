@@ -1,11 +1,16 @@
+using DG.Tweening;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 public class PlanetMovement : SimulationStart
 {
     const double G = 0.0667428;
 
     bool started;
 
-    [SerializeField] Rigidbody2D otherPlanet;
+    bool dead;
+    Vector3 lastScale;
+
+    public Rigidbody2D otherPlanet;
     [SerializeField] Rigidbody2D sun;
     [SerializeField] Vector2 startVelocity;
     Rigidbody2D thisPlanet;
@@ -29,18 +34,23 @@ public class PlanetMovement : SimulationStart
         {
             started = true;
 
-            thisPlanet.linearVelocity = startVelocity;
+            Vector2 direction = (sun.transform.position - transform.position).normalized;
+            Vector2 rotatedDirection = new Vector2(direction.y, -direction.x);
+
+            thisPlanet.linearVelocity = rotatedDirection * startVelocity.magnitude;
         }
     }
 
     public override void OnSimulationStop()
     {
         started = false;
+        ResetDeath();
         GetComponent<TrailRenderer>().Clear();
     }
     void FixedUpdate()
     {
         if (!started) return;
+        if (dead) return;
         if (sun != null)
         {
             ApplyGravity(sun, 1f, out currSunForce);
@@ -54,6 +64,12 @@ public class PlanetMovement : SimulationStart
 
     void ApplyGravity(Rigidbody2D otherBody, float influenceScale, out Vector2 forceOut)
     {
+        if (!otherBody.gameObject.activeSelf)
+        {
+            forceOut = Vector2.zero;
+            return;
+        }
+
         Vector2 direction = otherBody.position - thisPlanet.position;
         float distanceSqr = direction.sqrMagnitude;
 
@@ -69,6 +85,44 @@ public class PlanetMovement : SimulationStart
 
         thisPlanet.AddForce(force);
         forceOut = force;
+    }
+
+    public void ResetDeath()
+    {
+        if (!dead) return;
+        dead = false;
+        transform.DOKill();
+        gameObject.SetActive(true);
+        transform.localScale = lastScale;
+    }
+
+    void Death()
+    {
+        if (dead) return;
+
+        dead = true;
+
+        lastScale = gameObject.transform.localScale;
+
+        thisPlanet.linearVelocity = Vector2.zero;
+
+        transform.DOScale(0, 0.2f).SetEase(Ease.OutSine).OnComplete(() => gameObject.SetActive(false));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.tag == "sun")
+        {
+            Death();
+        }
+
+        if (collision.tag == "planet")
+        {
+            if (collision.GetComponent<Rigidbody2D>().mass < GetComponent<Rigidbody2D>().mass) return;
+
+            Death();
+        }
     }
 
 }

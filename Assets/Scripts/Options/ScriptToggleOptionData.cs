@@ -1,38 +1,60 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScriptToggleOptionData : MonoBehaviour
 {
-    [SerializeField] MonoBehaviour firstScript;
-    [SerializeField] MonoBehaviour secondScript;
+    [SerializeField] List<MonoBehaviour> firstScript;
+    [SerializeField] List<MonoBehaviour> secondScript;
+
+
 
     [SerializeField] Toggle toggle;
 
+    bool check;
+    bool curr;
+
     private void Start()
     {
-        if (toggle.isOn)
-        {
-            secondScript.enabled = true;
-            firstScript.enabled = false;
-        }
-        else
-        {
-            secondScript.enabled = false;
-            firstScript.enabled = true;
-        }
+        check = toggle.isOn;
+
+        curr = !check;
     }
 
     public void OnUpdate()
     {
-        if (toggle.isOn)
+        check = toggle.isOn;
+    }
+
+    private void Update()
+    {
+        
+        if (check != curr && GameManager.inst.simPlaying)
         {
-            secondScript.enabled = true;
-            firstScript.enabled = false;
-        }
-        else
+            curr = check;
+            if (curr)
+            {
+                secondScript.ForEach((i) => i.enabled = true);
+                firstScript.ForEach((i) => i.enabled = false);
+            }
+            else
+            {
+                secondScript.ForEach((i) => i.enabled = false);
+                firstScript.ForEach((i) => i.enabled = true);
+            }
+        }else if(curr && !GameManager.inst.simPlaying)
         {
-            secondScript.enabled = false;
-            firstScript.enabled = true;
+            curr = false;
+            if (curr)
+            {
+                secondScript.ForEach((i) => i.enabled = true);
+                firstScript.ForEach((i) => i.enabled = false);
+            }
+            else
+            {
+                secondScript.ForEach((i) => i.enabled = false);
+                firstScript.ForEach((i) => i.enabled = true);
+            }
         }
     }
 }
