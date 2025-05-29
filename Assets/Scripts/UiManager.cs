@@ -140,7 +140,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(true);
-        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testukų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
+        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
 
         testReview.offsetMin = new Vector2(0, -3350);
         testReview.offsetMax = new Vector2(0, -0);
