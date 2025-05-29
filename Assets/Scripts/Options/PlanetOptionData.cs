@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -34,11 +35,10 @@ public class PlanetOptionData : OptionData
     Stack<GameObject> FreePlanets;
 
     GameObject picked;
-    GameObject currSpot;
 
     [SerializeField] List <GameObject> PlanetSpots;
-    List<GameObject> spotTaken;
-    [SerializeField] float distToSpot;
+    [SerializeField] List<float> SpotDistances;
+    [SerializeField] float spotRange;
 
     protected override void Start()
     {
@@ -49,14 +49,6 @@ public class PlanetOptionData : OptionData
 
         FreePlanets = new Stack<GameObject>();
 
-        spotTaken = new List<GameObject>();
-
-        foreach(var i in PlanetSpots)
-        {
-            spotTaken.Add(null);
-            i.SetActive(false);
-        }
-
         foreach(var obj in planetObjects)
         {
             FreePlanets.Push(obj);
@@ -65,6 +57,11 @@ public class PlanetOptionData : OptionData
         updateCurrObject();
 
         MovementManager.inst.AssignMovingFunction(PickExisting);
+
+        for (int i = 0; i < PlanetSpots.Count; i++)
+        {
+            PlanetSpots[i].SetActive(false);
+        }
     }
 
     void updateCurrObject()
@@ -88,7 +85,7 @@ public class PlanetOptionData : OptionData
             planetImageUi.sprite = SpaceObjects[currObject].planetSprite;
         }
         text.text = SpaceObjects[currObject].name;
-        CountText.text = string.Format("Planetos: {0}/2",planetObjects.Count-FreePlanets.Count);
+        CountText.text = string.Format("Planetos: {0}/3",planetObjects.Count-FreePlanets.Count);
     }
 
     public void NextObject()
@@ -151,12 +148,10 @@ public class PlanetOptionData : OptionData
         {
             ShowCurrPlanet();
         }
+
         for (int i = 0; i < PlanetSpots.Count; i++)
         {
-            if (spotTaken[i] == null)
-            {
-                PlanetSpots[i].SetActive(true);
-            }
+            PlanetSpots[i].SetActive(true);
         }
 
         updateCurrObject();
@@ -166,7 +161,6 @@ public class PlanetOptionData : OptionData
     {
         if (picked != null) return;
         FreePlanets.Push(obj);
-        spotTaken[spotTaken.IndexOf(obj)]=null;
         PickObject(false);
     }
 
@@ -199,17 +193,26 @@ public class PlanetOptionData : OptionData
 
             bool goodToPlace = !MovementManager.inst.IsPointerOverUI();
 
-            var spot = Physics2D.OverlapCircle(mouse, distToSpot, LayerMask.GetMask("PlanetSpot"));
-
-            if (spot)
+            bool good = false;
+            for(int i = 0; i< PlanetSpots.Count;i++)
             {
-                picked.transform.position = new Vector3(spot.gameObject.transform.position.x, spot.gameObject.transform.position.y, picked.transform.position.z);
-                currSpot = spot.gameObject;
+                Vector2 closestPoint = mouse - new Vector2(PlanetSpots[i].transform.position.x, PlanetSpots[i].transform.position.y);
+                float dist = math.abs(closestPoint.magnitude - SpotDistances[i]);
+                if (dist <= spotRange)
+                {
+                    Vector2 tobe = closestPoint.normalized * SpotDistances[i];
+                    picked.transform.position = new Vector3(PlanetSpots[i].transform.position.x + tobe.x, PlanetSpots[i].transform.position.y + tobe.y, picked.transform.position.z);
+                    good = true;
+                    break;
+                }
             }
-            else
+
+
+            if (!good)
             {
                 goodToPlace = false;
             }
+            
 
             if (picked.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Movable")))
             {
@@ -232,10 +235,7 @@ public class PlanetOptionData : OptionData
                 {
                     picked.GetComponent<TrailRenderer>().enabled = true;
                     
-                    int id = PlanetSpots.IndexOf(currSpot);
-                    spotTaken[id] = picked;
                     picked = null;
-                    currSpot = null;
                     updateCurrObject();
                 }
                 else
@@ -243,7 +243,6 @@ public class PlanetOptionData : OptionData
                     FreePlanets.Push(picked);
                     HideCurrPlanet();
                     picked = null;
-                    currSpot = null;
                     updateCurrObject();
                 }
                 for (int i = 0; i < PlanetSpots.Count; i++)

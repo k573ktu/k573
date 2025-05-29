@@ -282,7 +282,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void PauseOff()
+    public void PauseOff()
     {
         pauseMeniu.SetActive(false);
         inPauseMeniu = false;
