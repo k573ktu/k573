@@ -45,9 +45,8 @@ public class VehicleOptionData : OptionData
 
         OptionsManager.inst.InsertOption(OptionName, Mathf.RoundToInt(selected.mass));
 
-        foreach (var i in transform.parent.GetComponentsInChildren<OptionData>())
+        foreach (var i in transform.parent.GetComponentsInChildren<VelocityOptionData>())
         {
-            if (i == this) continue;
             i.analyzedObject = currVehicle.transform.GetChild(0).GetComponent<Rigidbody2D>();
             i.OnUpdated();
         }

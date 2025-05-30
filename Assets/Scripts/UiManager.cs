@@ -14,6 +14,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject TeacherPanel;
     [SerializeField] private Button TeacherButton; // Corrected, no duplicate
 
+    [SerializeField] RectTransform testReview;
+
     public static UiManager inst;
 
     List<MainButtonSelected> mainButtons;
@@ -107,7 +109,7 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(true);
         TheoryUi.SetActive(false);
         TestUi.SetActive(false);
-        AvatarController.inst.ShowTextOneTime("Labas! Mano vardas Photonas ir esu čia tam, kad padėčiau Tau dar geriau susipažinti su fizika bei jos subtilybėmis! Šios simuliacijos metu galėsi susipažinti su įvairiais fizikos dėsniais, pritaikydamas juos realaus gyvenimo pavyzdžiuose. Sėkmės!", "selection");
+        AvatarController.inst.ShowTextOneTime("Labas! Mano vardas Fotonas ir esu čia tam, kad padėčiau Tau dar geriau susipažinti su fizika bei jos subtilybėmis! Šios simuliacijos metu galėsi susipažinti su įvairiais fizikos dėsniais, pritaikydamas juos realaus gyvenimo pavyzdžiuose. Sėkmės!", "selection");
     }
 
     public void GoOptions()
@@ -138,7 +140,10 @@ public class UiManager : MonoBehaviour
         SelectionUi.SetActive(false);
         TheoryUi.SetActive(false);
         TestUi.SetActive(true);
-        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testukų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
+        AvatarController.inst.ShowTextOneTime("Kad būtų paprasčiau sekti savo progresą – turiu Tau keletą testų, kuriuos išsprendęs dar geriau užtikrinsi savo fizikos žinias!", "test");
+
+        testReview.offsetMin = new Vector2(0, -3350);
+        testReview.offsetMax = new Vector2(0, -0);
     }
     public void GoTeacherPanel()
     {

@@ -21,6 +21,7 @@ public class PlanetMovement : SimulationStart
 
     const float planetInfluenceFactor = 0.02f; // otherPlanet influence mult
     const float minPlanetDistance = 0.5f; // Minimum safe distance between planets to prevent collapse
+    public TaskManager taskMan;
 
     void Start()
     {
@@ -114,13 +115,14 @@ public class PlanetMovement : SimulationStart
 
         if (collision.tag == "sun")
         {
+            taskMan.burntPlanet = true;
             Death();
         }
 
         if (collision.tag == "planet")
         {
             if (collision.GetComponent<Rigidbody2D>().mass < GetComponent<Rigidbody2D>().mass) return;
-
+            taskMan.collidedPlanets = true;
             Death();
         }
     }
