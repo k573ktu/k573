@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager inst;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     public List<GameObject> SimulationObjects;
 
     List<OptionData> OptionDataObjects;
@@ -35,7 +33,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseMeniu;
 
     public bool displayScene;
-
+    public TaskManager taskMan;
+    public GameObject vehicle;
     private void Awake()
     {
         if (inst == null) inst = this;

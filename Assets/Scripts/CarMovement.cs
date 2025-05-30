@@ -6,7 +6,7 @@ public class CarMovement : MonoBehaviour
 
     Vector2 currSpeed;
 
-    bool hit;
+    public bool hit;
 
     private void Start()
     {
