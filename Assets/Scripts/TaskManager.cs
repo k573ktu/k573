@@ -46,6 +46,11 @@ public class TaskManager : MonoBehaviour
         }
         UpdateTaskUI();
     }
+    public void updateVehicle()
+    {
+
+        StartCoroutine(DelayedSetVehicle(0.1f));
+    }
     private IEnumerator UpdateTasksPeriodically(float intervalSeconds)
     {
         while (true)

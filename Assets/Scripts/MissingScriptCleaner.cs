@@ -2,7 +2,8 @@ using UnityEditor;
 using UnityEngine;
 
 public class MissingScriptCleaner
-{
+{/*
+
     [MenuItem("Tools/Clean Missing Scripts In Scene")]
     public static void CleanMissingScripts()
     {
@@ -21,4 +22,5 @@ public class MissingScriptCleaner
 
         Debug.Log($"Done. Removed {count} missing scripts in total.");
     }
+    */
 }
