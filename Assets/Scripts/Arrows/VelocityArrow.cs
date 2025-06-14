@@ -6,7 +6,7 @@ public class VelocityArrow : Arrow
 
     protected override void UpdateArrowDirection()
     {
-        Vector2 curr = analyzedObject.GetComponent<Rigidbody2D>().linearVelocity;
+        Vector2 curr = analyzedObject.GetComponent<Rigidbody2D>().velocity;
         arrowDirection = Mathf.InverseLerp(0, maxForce, Mathf.Min(curr.magnitude, maxForce)) * maxArrowDisplayLength * curr.normalized;
         if (StaticStorage.arrowLength.HasValue)
         {

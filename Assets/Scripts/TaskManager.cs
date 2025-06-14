@@ -126,7 +126,7 @@ public class TaskManager : MonoBehaviour
     bool HasCrashed()
     {
         return vehicle.GetComponentInChildren<CarMovement>().hit;
-        //return vehicle.GetComponentInChildren<Rigidbody2D>().linearVelocity.magnitude < 0.001f && GameManager.simPlaying == true;
+        //return vehicle.GetComponentInChildren<Rigidbody2D>().velocity.magnitude < 0.001f && GameManager.simPlaying == true;
     }
 
     bool HasMoved(GameObject obj, Vector2 start)

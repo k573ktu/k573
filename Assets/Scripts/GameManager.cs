@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
 
             if (i.TryGetComponent(out currRigid))
             {
-                currRigid.linearVelocity = Vector2.zero;
+                currRigid.velocity = Vector2.zero;
                 currRigid.angularVelocity = 0;
                 currRigid.bodyType = RigidbodyType2D.Static;
                 i.transform.position = objStartPositions[counter];
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
             {
                 foreach (var j in i.GetComponentsInChildren<Rigidbody2D>())
                 {
-                    j.linearVelocity = Vector2.zero;
+                    j.velocity = Vector2.zero;
                     j.angularVelocity = 0;
                     j.bodyType = RigidbodyType2D.Static;
                     j.transform.position = objStartPositions[counter];

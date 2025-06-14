@@ -38,11 +38,11 @@ public class CarMovement : MonoBehaviour
         {
             if (!hit)
             {
-                rigid.linearVelocity = new Vector2(currSpeed.x, rigid.linearVelocity.y);
+                rigid.velocity = new Vector2(currSpeed.x, rigid.velocity.y);
             }
             else
             {
-                rigid.linearVelocity = new Vector2(Mathf.Max(0, rigid.linearVelocity.x), rigid.linearVelocity.y);
+                rigid.velocity = new Vector2(Mathf.Max(0, rigid.velocity.x), rigid.velocity.y);
             }
         }
         else

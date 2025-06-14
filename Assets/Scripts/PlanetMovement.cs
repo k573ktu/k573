@@ -38,7 +38,7 @@ public class PlanetMovement : SimulationStart
             Vector2 direction = (sun.transform.position - transform.position).normalized;
             Vector2 rotatedDirection = new Vector2(direction.y, -direction.x);
 
-            thisPlanet.linearVelocity = rotatedDirection * startVelocity.magnitude;
+            thisPlanet.velocity = rotatedDirection * startVelocity.magnitude;
         }
     }
 
@@ -105,7 +105,7 @@ public class PlanetMovement : SimulationStart
 
         lastScale = gameObject.transform.localScale;
 
-        thisPlanet.linearVelocity = Vector2.zero;
+        thisPlanet.velocity = Vector2.zero;
 
         transform.DOScale(0, 0.2f).SetEase(Ease.OutSine).OnComplete(() => gameObject.SetActive(false));
     }
