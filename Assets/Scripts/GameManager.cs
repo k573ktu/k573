@@ -216,6 +216,7 @@ public class GameManager : MonoBehaviour
                 start.OnSimulationStop();
             }
         }
+        MovementManager.inst.ResetCamera();
     }
 
     void PauseSimulation()

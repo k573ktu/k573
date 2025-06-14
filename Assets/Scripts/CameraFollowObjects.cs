@@ -1,16 +1,16 @@
-using System.Net;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
-public class CameraFollowObjects : MonoBehaviour
+public class CameraFollowZoom : MonoBehaviour
 {
-    [SerializeField] GameObject objA;
-    [SerializeField] GameObject objB;
+    public Transform[] targets;
+    public float smoothTime = 0.5f;
+    public float minZoom = 40f;
+    public float maxZoom = 10f;
+    public float zoomLimiter = 50f;
 
-    [SerializeField] float zoomPadding = 2f;
-    [SerializeField] float zoomSpeed = 2f;
-    [SerializeField] float minSize = 5f;
-    [SerializeField] float maxSize = 20f;
-
+    private Vector3 velocity;
     private Camera cam;
 
     void Start()
@@ -18,28 +18,84 @@ public class CameraFollowObjects : MonoBehaviour
         cam = GetComponent<Camera>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if (objA.activeSelf && objB.activeSelf)
-        {
-            Vector2 midpoint = (objA.transform.position + objB.transform.position) / 2f;
-            transform.position = new Vector3(midpoint.x, midpoint.y, transform.position.z);
+        if (targets.Length == 0) return;
 
-            float distance = Vector2.Distance(objA.transform.position, objB.transform.position);
-            float desiredSize = distance / 2f + zoomPadding;
+        Move();
+        Zoom();
+    }
 
-            desiredSize = Mathf.Clamp(desiredSize, minSize, maxSize);
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, desiredSize, Time.deltaTime * zoomSpeed);
-        }else if(objA.activeSelf)
+    void Move()
+    {
+        Vector3 newPosition = GetCenterPoint();
+
+        newPosition = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+
+        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+    }
+
+    void Zoom()
+    {
+        float greatestDistance = GetGreatestDistance();
+
+        float newZoom = Mathf.Lerp(maxZoom, minZoom, greatestDistance / zoomLimiter);
+        if (cam.orthographic)
         {
-            transform.position = new Vector3(objA.transform.position.x, objA.transform.position.y, transform.position.z);
-            cam.orthographicSize = 30;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
         }
-        else if (objB.activeSelf)
+        else
         {
-            transform.position = new Vector3(objB.transform.position.x, objB.transform.position.y, transform.position.z);
-            cam.orthographicSize = 30;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
         }
+    }
+
+    Vector3 GetCenterPoint()
+    {
+        bool was = false;
+
+        Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (!targets[i].gameObject.activeSelf) continue;
+            if (!was)
+            {
+                was = true;
+                bounds = new Bounds(targets[i].position, Vector3.zero);
+            }
+            else
+            {
+                bounds.Encapsulate(targets[i].position);
+            }
+        }
+
+        if (!was)
+        {
+            return transform.position;
+        }
+
+        return bounds.center;
+    }
+
+    float GetGreatestDistance()
+    {
+        bool was = false;
+        Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (!targets[i].gameObject.activeSelf) continue;
+            if (!was)
+            {
+                was = true;
+                bounds = new Bounds(targets[i].position, Vector3.zero);
+            }
+            else
+            {
+                bounds.Encapsulate(targets[i].position);
+            }
+        }
+
+        return Mathf.Max(bounds.size.x, bounds.size.y);
     }
 }
 

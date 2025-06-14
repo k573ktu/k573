@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 public class PlanetMovement : SimulationStart
@@ -10,19 +11,20 @@ public class PlanetMovement : SimulationStart
     bool dead;
     Vector3 lastScale;
 
-    public Rigidbody2D otherPlanet;
+    public List<Rigidbody2D> otherPlanets;
     [SerializeField] Rigidbody2D sun;
     [SerializeField] Vector2 startVelocity;
     Rigidbody2D thisPlanet;
 
-    public Vector2 currForce;
-    public Vector2 currSunForce;
-
+    [System.NonSerialized] public Vector2 currForce;
+    [System.NonSerialized] public Vector2 currSunForce;
+    public Vector2[] allForces;
 
     const float planetInfluenceFactor = 0.02f; // otherPlanet influence mult
     const float minPlanetDistance = 0.5f; // Minimum safe distance between planets to prevent collapse
     public TaskManager taskMan;
 
+    
     void Start()
     {
         started = false;
@@ -57,9 +59,13 @@ public class PlanetMovement : SimulationStart
             ApplyGravity(sun, 1f, out currSunForce);
 
         }
-        if (otherPlanet != null && otherPlanet != thisPlanet)
+        for(int i = 0;i<otherPlanets.Count;i++)
         {
-            ApplyGravity(otherPlanet, planetInfluenceFactor, out currForce);
+            if (otherPlanets[i] != null && otherPlanets[i] != thisPlanet)
+            {
+                ApplyGravity(otherPlanets[i], planetInfluenceFactor, out allForces[i]);
+                currForce += allForces[i];
+            }
         }
     }
 

@@ -23,6 +23,9 @@ public class MovementManager : MonoBehaviour
 
     public GraphicRaycaster graphicRaycaster;
 
+    Vector3 primaryCameraPos;
+    float primaryCameraZoom;
+
     private void OnDrawGizmosSelected()
     {
         if (!borderless)
@@ -91,6 +94,12 @@ public class MovementManager : MonoBehaviour
         if (inst == null) inst = this;
     }
 
+    public void ResetCamera()
+    {
+        transform.position = primaryCameraPos;
+        cameraObj.orthographicSize = primaryCameraZoom;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -102,6 +111,9 @@ public class MovementManager : MonoBehaviour
         {
             graphicRaycaster = FindFirstObjectByType<GraphicRaycaster>();
         }
+
+        primaryCameraPos = transform.position;
+        primaryCameraZoom = cameraObj.orthographicSize;
 
         updateCameraSize();
     }
