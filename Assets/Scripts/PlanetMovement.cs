@@ -20,7 +20,7 @@ public class PlanetMovement : SimulationStart
     [System.NonSerialized] public Vector2 currSunForce;
     public Vector2[] allForces;
 
-    const float planetInfluenceFactor = 0.02f; // otherPlanet influence mult
+    const float planetInfluenceFactor = 0.06f; // otherPlanet influence mult
     const float minPlanetDistance = 0.5f; // Minimum safe distance between planets to prevent collapse
     public TaskManager taskMan;
 

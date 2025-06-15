@@ -9,7 +9,7 @@ public class TaskManager : MonoBehaviour
     public GameManager GameManager;
     public GameObject topBox;
     public GameObject bottomBox;
-    public GameObject vehicle;
+    //public GameObject vehicle;
     public GameObject planet1;
     public GameObject planet2;
     public GameObject planet3;
@@ -30,7 +30,7 @@ public class TaskManager : MonoBehaviour
 
         if (sceneIndex == 2)
         {
-            StartCoroutine(DelayedSetVehicle(0.5f));
+            //StartCoroutine(DelayedSetVehicle(0.5f));
             topBoxStart = topBox.transform.position;
             bottomBoxStart = bottomBox.transform.position;
 
@@ -46,11 +46,7 @@ public class TaskManager : MonoBehaviour
         }
         UpdateTaskUI();
     }
-    public void updateVehicle()
-    {
-
-        StartCoroutine(DelayedSetVehicle(0.1f));
-    }
+    
     private IEnumerator UpdateTasksPeriodically(float intervalSeconds)
     {
         while (true)
@@ -65,21 +61,21 @@ public class TaskManager : MonoBehaviour
             yield return new WaitForSeconds(intervalSeconds);
         }
     }
-    private IEnumerator DelayedSetVehicle(float delaySeconds)
-    {
-        yield return new WaitForSeconds(delaySeconds);
+    //private IEnumerator DelayedSetVehicle(float delaySeconds)
+    //{
+    //    yield return new WaitForSeconds(delaySeconds);
 
-        if (GameManager.SimulationObjects != null &&
-            GameManager.SimulationObjects.Count > 2 &&
-            GameManager.SimulationObjects[2] != null)
-        {
-            vehicle = GameManager.SimulationObjects[2];
-        }
-        else
-        {
-            Debug.LogWarning("Vehicle object not found in SimulationObjects[2]");
-        }
-    }
+    //    if (GameManager.SimulationObjects != null &&
+    //        GameManager.SimulationObjects.Count > 2 &&
+    //        GameManager.SimulationObjects[2] != null)
+    //    {
+    //        vehicle = GameManager.SimulationObjects[2];
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Vehicle object not found in SimulationObjects[2]");
+    //    }
+    //}
     /*
     void Update()
     {
@@ -125,7 +121,9 @@ public class TaskManager : MonoBehaviour
 
     bool HasCrashed()
     {
-        return vehicle.GetComponentInChildren<CarMovement>().hit;
+        var cars = GameObject.FindObjectsOfType<CarMovement>();
+        if (cars.Length == 0) return false;
+        return cars[0].hit;
         //return vehicle.GetComponentInChildren<Rigidbody2D>().velocity.magnitude < 0.001f && GameManager.simPlaying == true;
     }
 

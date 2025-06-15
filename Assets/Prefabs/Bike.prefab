@@ -49,9 +49,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136,9 +133,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -187,6 +181,7 @@ GameObject:
   - component: {fileID: 4333257922590952502}
   - component: {fileID: 795447192913066166}
   - component: {fileID: 4736296864775347994}
+  - component: {fileID: 5180773628306311126}
   m_Layer: 0
   m_Name: FrontWheel
   m_TagString: Untagged
@@ -226,9 +221,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -272,9 +264,8 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2255421155297880458}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bd6d7fe9f163f4c4e8321e7a8de6fed7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -296,13 +287,13 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: -0.017106676, y: 0.025266439}
+  serializedVersion: 2
   m_Radius: 6.9776006
 --- !u!50 &795447192913066166
 Rigidbody2D:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -313,10 +304,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bd6d7fe9f163f4c4e8321e7a8de6fed7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -344,7 +335,6 @@ HingeJoint2D:
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 11.982286, y: -6.3693285}
-  m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -353,6 +343,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &5180773628306311126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255421155297880458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be76e0d0e5ae9ac4983583fcd8df8606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 7034401984519542874}
 --- !u!1 &2794294473363362354
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +444,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -481,7 +481,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!50 &2910236689923994983
 Rigidbody2D:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -492,8 +492,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 30
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c2e6aee67748e43aa3edb79cecad39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit: 0
 --- !u!60 &8584830270729007979
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -526,7 +527,6 @@ PolygonCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5002079067014448757}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -550,8 +550,7 @@ PolygonCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -568,9 +567,26 @@ PolygonCollider2D:
       - {x: 6.4761453, y: 3.2469935}
       - {x: 8.273556, y: 0.24015236}
       - {x: 9.386929, y: 0.7189982}
-      - {x: 9.331408, y: 7.3107176}
-      - {x: -9.175889, y: 6.5209856}
-      - {x: -9.140993, y: 4.265374}
+      - {x: 9.363304, y: 6.064121}
+      - {x: 9.271214, y: 6.4740276}
+      - {x: 8.997999, y: 7.0391517}
+      - {x: 8.741441, y: 7.182466}
+      - {x: 4.464386, y: 7.126794}
+      - {x: 4.283748, y: 6.762467}
+      - {x: 4.369865, y: 6.2593374}
+      - {x: 4.669569, y: 6.0597277}
+      - {x: 5.84353, y: 6.0256934}
+      - {x: 6.2801104, y: 4.925785}
+      - {x: 4.4977045, y: 2.806184}
+      - {x: -4.2566085, y: 2.063373}
+      - {x: -4.9866343, y: 4.483638}
+      - {x: -2.6594782, y: 4.9335337}
+      - {x: -2.421739, y: 5.5006247}
+      - {x: -2.6810193, y: 5.904565}
+      - {x: -8.195653, y: 6.501964}
+      - {x: -8.94442, y: 5.915623}
+      - {x: -8.856118, y: 4.7817173}
+      - {x: -8.391515, y: 4.34309}
       - {x: -6.270806, y: 4.3013864}
       - {x: -3.96236, y: -2.7324743}
       - {x: -5.039308, y: -3.2251723}
@@ -628,9 +644,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -674,7 +687,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7718750696871044300}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -698,13 +710,13 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: -0.06012378, y: 0.051374335}
+  serializedVersion: 2
   m_Radius: 7.008586
 --- !u!50 &7360481637747938866
 Rigidbody2D:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -715,8 +727,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -746,7 +758,6 @@ HingeJoint2D:
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -11.942709, y: -6.4068317}
-  m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

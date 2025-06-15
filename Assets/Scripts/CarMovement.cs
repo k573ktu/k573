@@ -24,12 +24,17 @@ public class CarMovement : MonoBehaviour
         currSpeed = speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void CollisionEnter(Collision2D collision)
     {
-        if(collision.gameObject.tag == "box")
+        if (collision.gameObject.tag == "box")
         {
             hit = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CollisionEnter(collision);
     }
 
     void Update()

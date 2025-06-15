@@ -22,6 +22,6 @@
 
     public string GetStatusText()
     {
-        return $"{Description} - {(IsComplete ? "<color=green>✓</color>" : "<color=red>✗</color>")}";
+        return $"{Description} - {(IsComplete ? "<color=green>[v]</color>" : "<color=red>[x]</color>")}";
     }
 }

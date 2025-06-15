@@ -1147,7 +1147,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.61795044, y: -0.000797987}
+  m_Offset: {x: 0.1552391, y: -0.000797987}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1158,7 +1158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 103.36842, y: 7.958345}
+  m_Size: {x: 142.23758, y: 7.958345}
   m_EdgeRadius: 0
 --- !u!212 &243061501
 SpriteRenderer:
@@ -2981,7 +2981,7 @@ MonoBehaviour:
   Metric: kg
   slider: {fileID: 930655147}
   text: {fileID: 484441038}
-  DisableOnSimulationStart: 0
+  DisableOnSimulationStart: 1
 --- !u!1 &751483932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,7 +4044,7 @@ Transform:
   m_GameObject: {fileID: 891187409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.83, y: -10.06, z: -0.21149828}
+  m_LocalPosition: {x: -69.3, y: -10.06, z: -0.21149828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5023,7 +5023,7 @@ Transform:
   m_GameObject: {fileID: 1105300056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.9, y: -10.06, z: -0.21149828}
+  m_LocalPosition: {x: 71.7, y: -10.06, z: -0.21149828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5707,7 +5707,7 @@ MonoBehaviour:
   Metric: m/s^2
   slider: {fileID: 2116738044}
   text: {fileID: 40948650}
-  DisableOnSimulationStart: 0
+  DisableOnSimulationStart: 1
 --- !u!1 &1234180598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,7 +6304,6 @@ MonoBehaviour:
   GameManager: {fileID: 991415125}
   topBox: {fileID: 146552429}
   bottomBox: {fileID: 1144594081}
-  vehicle: {fileID: 0}
   planet1: {fileID: 0}
   planet2: {fileID: 0}
   planet3: {fileID: 0}
