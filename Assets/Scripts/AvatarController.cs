@@ -21,6 +21,8 @@ public class AvatarController : MonoBehaviour
 
     [SerializeField] List<string> MessageList;
 
+    [SerializeField] string startMessagesCode;
+
     public static AvatarController inst;
 
     Queue<string> textQueue;
@@ -39,7 +41,7 @@ public class AvatarController : MonoBehaviour
 
     private void Awake()
     {
-        if (inst == null) inst = this;
+        inst = this;
         if(oneTime == null) oneTime = new HashSet<string>();
     }
 
@@ -55,9 +57,14 @@ public class AvatarController : MonoBehaviour
         avatarImage.anchoredPosition = new Vector2(avatarImage.anchoredPosition.x, avatarHiddenYPosition);
         dialogObject.SetActive(false);
 
-        foreach (string text in MessageList)
+        if (!oneTime.Contains(startMessagesCode))
         {
-            ShowText(text);
+            oneTime.Add(startMessagesCode);
+            foreach (string text in MessageList)
+            {
+                ShowText(text);
+            }
+            UpdateText();
         }
     }
 
@@ -110,7 +117,7 @@ public class AvatarController : MonoBehaviour
     {
         textQueue.Enqueue(text);
 
-        UpdateText();
+        
     }
 
     public void ShowTextOneTime(string text, string code)

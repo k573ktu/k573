@@ -5664,6 +5664,7 @@ MonoBehaviour:
   dialogText: {fileID: 1239430568}
   timeToAddLetter: 0.05
   MessageList: []
+  startMessagesCode: 
 --- !u!1 &756613006
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,7 +8392,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 404f7c5c23f8c074586648266aa1b5cb, type: 2}
-  m_sharedMaterial: {fileID: 7298267821504332133, guid: c5e9e88c9986a7647a9c885a8730e61d, type: 2}
+  m_sharedMaterial: {fileID: -6976565109015329776, guid: 404f7c5c23f8c074586648266aa1b5cb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13357,7 +13358,7 @@ MonoBehaviour:
   m_text: "Nor\u0117damas t\u0119sti \u2013 spausk debes\u0117l\u012F."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 404f7c5c23f8c074586648266aa1b5cb, type: 2}
-  m_sharedMaterial: {fileID: 7298267821504332133, guid: e7cbf048d20e8c545a45011c5a341333, type: 2}
+  m_sharedMaterial: {fileID: -6976565109015329776, guid: 404f7c5c23f8c074586648266aa1b5cb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
