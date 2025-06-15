@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using System.Text;
+using System.Collections;
 
 public class AvatarController : MonoBehaviour
 {
@@ -56,6 +57,13 @@ public class AvatarController : MonoBehaviour
         avatarCurrYPosition = avatarImage.anchoredPosition.y;
         avatarImage.anchoredPosition = new Vector2(avatarImage.anchoredPosition.x, avatarHiddenYPosition);
         dialogObject.SetActive(false);
+
+        StartCoroutine(LateStart());
+    }
+
+    IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(0.5f);
 
         if (!oneTime.Contains(startMessagesCode))
         {
@@ -143,11 +151,11 @@ public class AvatarController : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    skip = true;
-        //    HideText();
-        //}
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            skip = true;
+            HideText();
+        }
 
         if (inAnimation)
         {

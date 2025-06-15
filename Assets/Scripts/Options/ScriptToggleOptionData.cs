@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScriptToggleOptionData : MonoBehaviour
@@ -57,15 +58,15 @@ public class ScriptToggleOptionData : MonoBehaviour
         //    }
         //}
 
-        if (GameManager.inst.simPlaying)
-        {
-            secondScript.ForEach((i) => i.enabled = true);
-            firstScript.ForEach((i) => i.enabled = false);
-        }
-        else
+        if (SceneManager.sceneCount > 1 || !GameManager.inst.simPlaying)
         {
             secondScript.ForEach((i) => i.enabled = false);
             firstScript.ForEach((i) => i.enabled = true);
+        }
+        else
+        {
+            secondScript.ForEach((i) => i.enabled = true);
+            firstScript.ForEach((i) => i.enabled = false);
         }
     }
 }

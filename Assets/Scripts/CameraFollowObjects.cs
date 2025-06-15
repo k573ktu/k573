@@ -39,6 +39,8 @@ public class CameraFollowZoom : MonoBehaviour
     {
         float greatestDistance = GetGreatestDistance();
 
+        if (greatestDistance == float.PositiveInfinity) return;
+
         float newZoom = Mathf.Lerp(maxZoom, minZoom, greatestDistance / zoomLimiter);
         if (cam.orthographic)
         {
@@ -94,6 +96,8 @@ public class CameraFollowZoom : MonoBehaviour
                 bounds.Encapsulate(targets[i].position);
             }
         }
+
+        if (!was) return float.PositiveInfinity;
 
         return Mathf.Max(bounds.size.x, bounds.size.y);
     }

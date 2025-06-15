@@ -6709,7 +6709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 449046929}
         m_TargetAssemblyTypeName: AvatarController, Assembly-CSharp
         m_MethodName: DialogPressed
         m_Mode: 1
